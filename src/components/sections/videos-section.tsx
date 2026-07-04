@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { videos } from '@/data'
+import type { VideoItem } from '@/types/content.types'
 import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
 
 const VP = { once: true, amount: 0.2 } as const
 
 export function VideosSection() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null)
+  const [openVideo, setOpenVideo] = useState<VideoItem | null>(null)
 
   return (
     <section
@@ -52,33 +54,42 @@ export function VideosSection() {
               isActive={activeIdx === i}
               onEnter={() => setActiveIdx(i)}
               onLeave={() => setActiveIdx(null)}
+              onOpen={() => setOpenVideo(v)}
             />
           </motion.div>
         ))}
       </motion.div>
+
+      <VideoModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </section>
   )
 }
 
 interface VideoCardProps {
-  video: { t: string; poster: string }
+  video: VideoItem
   isActive: boolean
   onEnter: () => void
   onLeave: () => void
+  onOpen: () => void
 }
 
-function VideoCard({ video, isActive, onEnter, onLeave }: VideoCardProps) {
+function VideoCard({ video, isActive, onEnter, onLeave, onOpen }: VideoCardProps) {
   return (
-    <div
-      className="relative cursor-pointer overflow-hidden border border-neutral-200 bg-brand-900"
+    <button
+      type="button"
+      onClick={onOpen}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      onFocus={onEnter}
+      onBlur={onLeave}
+      aria-label={`Ver video completo: ${video.t}`}
+      className="group relative block w-full cursor-pointer overflow-hidden border border-neutral-200 bg-brand-900 p-0 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2"
       style={{
         aspectRatio: '16/10',
         borderRadius: '10px',
         transition: 'transform 0.2s cubic-bezier(0.2,0.8,0.2,1)',
         transform: isActive ? 'scale(1.02)' : 'scale(1)',
       }}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
     >
       <img
         src={video.poster}
@@ -98,13 +109,81 @@ function VideoCard({ video, isActive, onEnter, onLeave }: VideoCardProps) {
           transform: isActive ? 'scale(1.05)' : 'scale(1)',
         }}
       >
-        <svg width="13" height="13" viewBox="0 0 24 24" className="fill-brand-800">
+        <svg width="13" height="13" viewBox="0 0 24 24" className="fill-brand-800" style={{ marginLeft: '1px' }}>
           <path d="M7 4.5v15l13-7.5z" />
         </svg>
-        <span className="font-mono text-xs font-medium text-brand-900">
-          {video.t}
-        </span>
+        <span className="font-mono text-xs font-medium text-brand-900">{video.t}</span>
       </div>
-    </div>
+    </button>
+  )
+}
+
+interface VideoModalProps {
+  video: VideoItem | null
+  onClose: () => void
+}
+
+function VideoModal({ video, onClose }: VideoModalProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const [rendered, setRendered] = useState<VideoItem | null>(null)
+
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+    if (video) {
+      setRendered(video)
+      dialog.showModal()
+    } else if (dialog.open) {
+      dialog.close()
+    }
+  }, [video])
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className="video-modal"
+      aria-label={rendered?.t}
+      onClose={onClose}
+      onCancel={onClose}
+      onClick={(e) => {
+        if (e.target === dialogRef.current) onClose()
+      }}
+      onTransitionEnd={(e) => {
+        if (e.target === dialogRef.current && !dialogRef.current?.open) {
+          setRendered(null)
+        }
+      }}
+    >
+      {rendered && (
+        <div className="relative">
+          <video
+            key={rendered.url}
+            src={rendered.url}
+            controls
+            autoPlay
+            className="block w-full bg-neutral-800"
+            style={{ borderRadius: '20px', aspectRatio: '16/9', maxHeight: '80vh', objectFit: 'contain' }}
+          />
+          <div
+            className="absolute left-4 top-4 flex items-center gap-[9px] rounded-full px-3.5 py-2 bg-neutral-50/94"
+            style={{ boxShadow: '0 2px 8px rgba(11, 63, 124,.15)' }}
+          >
+            <span className="font-mono text-xs font-medium text-brand-900">{rendered.t}</span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            autoFocus
+            aria-label="Cerrar video"
+            className="absolute -right-2 -top-2 sm:right-3 sm:top-3 flex h-11 w-11 items-center justify-center rounded-full bg-neutral-50/94 text-brand-900 transition-transform duration-150 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+            style={{ boxShadow: '0 2px 8px rgba(11, 63, 124,.2)' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </dialog>
   )
 }

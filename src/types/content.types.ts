@@ -63,6 +63,7 @@ export interface Testimonial {
 export interface VideoItem {
   t: string
   poster: string
+  url: string
 }
 
 export interface ContactContent {
