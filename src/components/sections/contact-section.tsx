@@ -11,11 +11,25 @@ const WaIcon = () => (
   </svg>
 )
 
+type FormErrors = {
+  nombre?: string
+  telefono?: string
+}
+
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [nombre, setNombre] = useState('')
+  const [telefono, setTelefono] = useState('')
+  const [monto, setMonto] = useState('')
+  const [errors, setErrors] = useState<FormErrors>({})
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const nextErrors: FormErrors = {}
+    if (!nombre.trim()) nextErrors.nombre = 'Ingresa tu nombre completo.'
+    if (!telefono.trim()) nextErrors.telefono = 'Ingresa un teléfono de contacto.'
+    setErrors(nextErrors)
+    if (Object.keys(nextErrors).length > 0) return
     setSubmitted(true)
   }
 
@@ -112,44 +126,72 @@ export function ContactSection() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2, ease: EASE }}
                 onSubmit={handleSubmit}
+                noValidate
                 className="flex flex-col gap-4 rounded-xl bg-white border border-neutral-200"
                 style={{ padding: '32px' }}
               >
                 <div>
-                  <label className="block text-[13px] font-medium mb-1.5 text-neutral-600">
+                  <label htmlFor="nombre" className="block text-[13px] font-medium mb-1.5 text-neutral-600">
                     Nombre completo
                   </label>
                   <input
+                    id="nombre"
                     type="text"
                     placeholder="Tu nombre"
-                    required
+                    value={nombre}
+                    onChange={(e) => {
+                      setNombre(e.target.value)
+                      if (errors.nombre) setErrors((prev) => ({ ...prev, nombre: undefined }))
+                    }}
+                    aria-invalid={!!errors.nombre}
+                    aria-describedby={errors.nombre ? 'nombre-error' : undefined}
                     className="fondi-input w-full rounded-md text-[15px] font-sans border border-neutral-300 bg-white text-brand-900"
                     style={{
                       padding: '12px 14px',
                     }}
                   />
+                  {errors.nombre && (
+                    <p id="nombre-error" className="text-xs mt-1.5 text-status-red">
+                      {errors.nombre}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-[13px] font-medium mb-1.5 text-neutral-600">
+                  <label htmlFor="telefono" className="block text-[13px] font-medium mb-1.5 text-neutral-600">
                     Teléfono
                   </label>
                   <input
+                    id="telefono"
                     type="tel"
                     placeholder="+1 (___) ___-____"
-                    required
+                    value={telefono}
+                    onChange={(e) => {
+                      setTelefono(e.target.value)
+                      if (errors.telefono) setErrors((prev) => ({ ...prev, telefono: undefined }))
+                    }}
+                    aria-invalid={!!errors.telefono}
+                    aria-describedby={errors.telefono ? 'telefono-error' : undefined}
                     className="fondi-input w-full rounded-md text-[15px] font-sans border border-neutral-300 bg-white text-brand-900"
                     style={{
                       padding: '12px 14px',
                     }}
                   />
+                  {errors.telefono && (
+                    <p id="telefono-error" className="text-xs mt-1.5 text-status-red">
+                      {errors.telefono}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-[13px] font-medium mb-1.5 text-neutral-600">
+                  <label htmlFor="monto" className="block text-[13px] font-medium mb-1.5 text-neutral-600">
                     ¿Cuánto necesitas?
                   </label>
                   <input
+                    id="monto"
                     type="text"
                     placeholder="Ej: $2,500"
+                    value={monto}
+                    onChange={(e) => setMonto(e.target.value)}
                     className="fondi-input w-full rounded-md text-[15px] font-sans border border-neutral-300 bg-white text-brand-900"
                     style={{
                       padding: '12px 14px',

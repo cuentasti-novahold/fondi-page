@@ -77,7 +77,7 @@ export function SimulatorSection() {
           margin: '32px auto 0',
           borderRadius: '12px',
           padding: '36px',
-          boxShadow: '0 30px 60px -18px rgba(0,0,0,.4)',
+          boxShadow: '0 30px 60px -18px rgba(11,63,124,.35), 0 8px 24px rgba(11,63,124,.12)',
         }}
       >
         <div className="grid grid-cols-2 gap-8">
@@ -147,7 +147,7 @@ export function SimulatorSection() {
 
           {/* Right: result */}
           <div
-            className="flex flex-col justify-center rounded-[10px] px-6 py-8 bg-brand-50"
+            className="flex flex-col justify-center rounded-[10px] px-6 py-8 bg-brand-50 border border-accent-500/50"
           >
             <div className="text-[13px] tracking-[.04em] text-brand-600">
               Cuota mensual estimada
@@ -156,11 +156,11 @@ export function SimulatorSection() {
               value={cuota}
               format={fmt}
               className="font-serif italic mt-1.5 text-brand-900"
-              style={{ fontSize: '44px', lineHeight: 1.02 }}
+              style={{ fontSize: '44px', lineHeight: 1.02, fontVariantNumeric: 'tabular-nums' }}
             />
             <div className="text-xs mt-2 text-neutral-500">
               Total:{' '}
-              <AnimatedCounter value={total} format={fmt} />
+              <AnimatedCounter value={total} format={fmt} style={{ fontVariantNumeric: 'tabular-nums' }} />
               <br />
               Tasa ejemplo {(rate * 100).toFixed(0)}%/mes
             </div>

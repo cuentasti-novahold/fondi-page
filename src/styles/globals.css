@@ -33,6 +33,7 @@
   /* Status */
   --color-status-green: #4E7C55;
   --color-status-amber: #B8893B;
+  --color-status-red: #B8493D;
 
   /* WhatsApp */
   --color-whatsapp: #25D366;
@@ -101,11 +102,19 @@ input[type="range"]::-moz-range-thumb {
 
 /* Form input focus */
 .fondi-input {
-  transition: border-color 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: border-color 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .fondi-input:focus {
   border-color: #1E55A5;
+  box-shadow: 0 0 0 3px rgba(30, 85, 165, 0.16);
   outline: none;
+}
+.fondi-input[aria-invalid="true"] {
+  border-color: #B8493D;
+}
+.fondi-input[aria-invalid="true"]:focus {
+  border-color: #B8493D;
+  box-shadow: 0 0 0 3px rgba(184, 73, 61, 0.16);
 }
 
 /* Card hover lift */
