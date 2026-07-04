@@ -13,9 +13,9 @@ export function Navbar() {
       {/* Logo */}
       <a href="#hero" className="flex items-center gap-[9px] no-underline">
         <span
-          className="inline-flex w-[30px] h-[30px] rounded-[7px] items-center justify-center font-serif font-semibold text-lg italic bg-brand-300 text-brand-900"
+          className="inline-flex w-[30px] h-[30px] rounded-[7px] items-center justify-center bg-brand-300"
         >
-          F
+          <img src="/images/logo-icon.png" alt="" className="w-[21px] h-[21px] object-contain" />
         </span>
         <span className="font-sans font-bold text-[19px] tracking-[.02em] text-white">
           FONDI
