@@ -5,7 +5,7 @@ export interface HeroContent {
   subline: string
   ctaPrimary: { label: string; href: string }
   ctaWhatsApp: { label: string; href: string }
-  bgImage: string
+  bgVideo: string
 }
 
 export interface Stat {
