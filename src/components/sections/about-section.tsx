@@ -9,8 +9,7 @@ export function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="grid grid-cols-2 gap-12 items-center bg-brand-900"
-      style={{ padding: '76px 48px' }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-brand-900 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
     >
       {/* Text — slides from left */}
       <motion.div variants={slideInLeft} initial="hidden" whileInView="visible" viewport={VP}>
@@ -20,7 +19,7 @@ export function AboutSection() {
         <h2
           className="font-serif italic font-normal text-white"
           style={{
-            fontSize: '38px',
+            fontSize: 'clamp(28px, 7vw, 38px)',
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
             textWrap: 'balance',
@@ -46,8 +45,7 @@ export function AboutSection() {
         initial="hidden"
         whileInView="visible"
         viewport={VP}
-        className="relative rounded-xl overflow-hidden bg-brand-800"
-        style={{ minHeight: '340px' }}
+        className="relative rounded-xl overflow-hidden bg-brand-800 aspect-[4/3] md:aspect-auto md:min-h-[340px]"
       >
         <img
           src={about.image}

@@ -6,9 +6,9 @@ export function Footer() {
     <footer className="bg-brand-900 text-brand-300" style={{ paddingTop: '60px' }}>
       {/* 3-column grid */}
       <div
-        className="px-12 pb-10 border-b border-brand-800"
+        className="px-5 sm:px-8 md:px-12 pb-10 border-b border-brand-800"
       >
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-[9px]">
@@ -68,7 +68,7 @@ export function Footer() {
 
       {/* Bottom line */}
       <div
-        className="px-12 py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500"
+        className="px-5 sm:px-8 md:px-12 py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500"
       >
         <span>© {year} Fondi · Todos los derechos reservados</span>
         <span>Créditos sujetos a evaluación</span>

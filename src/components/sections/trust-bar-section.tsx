@@ -4,9 +4,9 @@ import { staggerContainer, staggerItem } from '@/components/motion'
 
 export function TrustBarSection() {
   return (
-    <div className="bg-brand-800" style={{ padding: '28px 48px' }}>
+    <div className="bg-brand-800 py-7 px-5 sm:px-8 md:px-12">
       <motion.div
-        className="grid grid-cols-4 gap-6"
+        className="grid grid-cols-2 gap-y-6 gap-x-4 sm:grid-cols-4 sm:gap-6"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

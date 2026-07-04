@@ -37,7 +37,9 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative" style={{ padding: '96px 48px 104px', maxWidth: '640px' }}>
+      <div
+        className="relative px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]"
+      >
         {/* Beat 1 — eyebrow */}
         <motion.div {...beat(0)}>
           <div
@@ -53,7 +55,7 @@ export function HeroSection() {
           {...beat(0.12)}
           className="font-sans font-bold text-white"
           style={{
-            fontSize: '56px',
+            fontSize: 'clamp(34px, 9vw, 56px)',
             lineHeight: 1.04,
             letterSpacing: '-0.03em',
             textWrap: 'balance',
@@ -71,7 +73,7 @@ export function HeroSection() {
           {...beat(0.26)}
           className="font-serif text-brand-200"
           style={{
-            fontSize: '21px',
+            fontSize: 'clamp(17px, 4.5vw, 21px)',
             lineHeight: 1.5,
             maxWidth: '480px',
             margin: '24px 0 0',
@@ -82,7 +84,7 @@ export function HeroSection() {
         </motion.p>
 
         {/* Beat 4 — CTAs */}
-        <motion.div {...beat(0.4)} className="flex gap-3 mt-9 flex-wrap">
+        <motion.div {...beat(0.4)} className="flex flex-col sm:flex-row gap-3 mt-9">
           <Button variant="accent" size="lg" href={hero.ctaPrimary.href}>
             {hero.ctaPrimary.label}
           </Button>

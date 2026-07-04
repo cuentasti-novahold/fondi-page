@@ -40,8 +40,7 @@ export function SimulatorSection() {
   return (
     <section
       id="simulador"
-      className="relative bg-brand-900"
-      style={{ padding: '76px 48px 120px' }}
+      className="relative bg-brand-900 px-5 sm:px-8 md:px-12 pt-14 pb-16 md:pt-[76px] md:pb-[120px]"
     >
       {/* Heading — slides from left */}
       <motion.div
@@ -56,7 +55,7 @@ export function SimulatorSection() {
         </div>
         <h2
           className="font-sans font-semibold mt-[14px] mb-4 text-white"
-          style={{ fontSize: '34px', letterSpacing: '-0.02em', lineHeight: 1.12, textWrap: 'balance' }}
+          style={{ fontSize: 'clamp(26px, 6vw, 34px)', letterSpacing: '-0.02em', lineHeight: 1.12, textWrap: 'balance' }}
         >
           Calcula tu crédito <span className="font-serif italic font-medium">en segundos.</span>
         </h2>
@@ -71,16 +70,15 @@ export function SimulatorSection() {
         initial="hidden"
         whileInView="visible"
         viewport={VP}
-        className="bg-white"
+        className="bg-white p-6 md:p-9"
         style={{
           maxWidth: '640px',
           margin: '32px auto 0',
           borderRadius: '12px',
-          padding: '36px',
           boxShadow: '0 30px 60px -18px rgba(11,63,124,.35), 0 8px 24px rgba(11,63,124,.12)',
         }}
       >
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left: sliders */}
           <div>
             {/* Monto */}
@@ -156,7 +154,7 @@ export function SimulatorSection() {
               value={cuota}
               format={fmt}
               className="font-serif italic mt-1.5 text-brand-900"
-              style={{ fontSize: '44px', lineHeight: 1.02, fontVariantNumeric: 'tabular-nums' }}
+              style={{ fontSize: 'clamp(32px, 8vw, 44px)', lineHeight: 1.02, fontVariantNumeric: 'tabular-nums' }}
             />
             <div className="text-xs mt-2 text-neutral-500">
               Total:{' '}

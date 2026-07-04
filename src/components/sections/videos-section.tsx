@@ -11,10 +11,7 @@ export function VideosSection() {
   return (
     <section
       id="videos"
-      className="bg-brand-50 border-t border-neutral-200"
-      style={{
-        padding: '76px 48px',
-      }}
+      className="bg-brand-50 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
     >
       {/* Header */}
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
@@ -24,7 +21,7 @@ export function VideosSection() {
         <h2
           className="font-sans font-semibold mt-[14px] text-brand-900"
           style={{
-            fontSize: '34px',
+            fontSize: 'clamp(26px, 6vw, 34px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.12,
             maxWidth: '560px',
@@ -42,7 +39,7 @@ export function VideosSection() {
 
       {/* Cards — stagger entrance, CSS hover preserved */}
       <motion.div
-        className="grid grid-cols-3 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

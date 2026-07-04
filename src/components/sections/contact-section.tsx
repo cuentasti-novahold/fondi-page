@@ -36,12 +36,9 @@ export function ContactSection() {
   return (
     <section
       id="contacto"
-      className="bg-neutral-100 border-t border-neutral-200"
-      style={{
-        padding: '76px 48px',
-      }}
+      className="bg-neutral-100 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
     >
-      <div className="grid grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left: info — slides from left */}
         <motion.div variants={slideInLeft} initial="hidden" whileInView="visible" viewport={VP}>
           <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
@@ -50,7 +47,7 @@ export function ContactSection() {
           <h2
             className="font-sans font-semibold text-brand-900"
             style={{
-              fontSize: '34px',
+              fontSize: 'clamp(26px, 6vw, 34px)',
               letterSpacing: '-0.02em',
               lineHeight: 1.12,
               margin: '14px 0 18px',
@@ -111,8 +108,8 @@ export function ContactSection() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease: EASE }}
-                className="flex flex-col items-center justify-center rounded-xl bg-white border border-neutral-200"
-                style={{ padding: '32px', minHeight: '300px' }}
+                className="flex flex-col items-center justify-center rounded-xl bg-white border border-neutral-200 p-6 md:p-8"
+                style={{ minHeight: '300px' }}
               >
                 <div className="font-serif italic text-[34px] text-brand-900">✓</div>
                 <p className="font-sans font-semibold text-lg mt-4 text-brand-900">¡Recibimos tu solicitud!</p>
@@ -127,8 +124,7 @@ export function ContactSection() {
                 transition={{ duration: 0.2, ease: EASE }}
                 onSubmit={handleSubmit}
                 noValidate
-                className="flex flex-col gap-4 rounded-xl bg-white border border-neutral-200"
-                style={{ padding: '32px' }}
+                className="flex flex-col gap-4 rounded-xl bg-white border border-neutral-200 p-6 md:p-8"
               >
                 <div>
                   <label htmlFor="nombre" className="block text-[13px] font-medium mb-1.5 text-neutral-600">

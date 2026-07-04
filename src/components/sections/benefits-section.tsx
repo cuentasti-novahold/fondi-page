@@ -7,7 +7,7 @@ const VP = { once: true, amount: 0.2 } as const
 
 export function BenefitsSection() {
   return (
-    <section className="bg-white" style={{ padding: '76px 48px' }}>
+    <section className="bg-white py-14 md:py-[76px] px-5 sm:px-8 md:px-12">
       {/* Header */}
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
         <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
@@ -16,7 +16,7 @@ export function BenefitsSection() {
         <h2
           className="font-sans font-semibold mt-[14px] text-brand-900"
           style={{
-            fontSize: '34px',
+            fontSize: 'clamp(26px, 6vw, 34px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.12,
             maxWidth: '560px',
@@ -30,7 +30,7 @@ export function BenefitsSection() {
 
       {/* Cards — stagger */}
       <motion.div
-        className="grid grid-cols-3 gap-5 mt-11"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-11"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

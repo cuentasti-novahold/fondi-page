@@ -6,7 +6,10 @@ const VP = { once: true, amount: 0.2 } as const
 
 export function StepsSection() {
   return (
-    <section id="como-funciona" className="bg-white" style={{ padding: '120px 48px 76px' }}>
+    <section
+      id="como-funciona"
+      className="bg-white px-5 sm:px-8 md:px-12 pt-16 pb-12 md:pt-[120px] md:pb-[76px]"
+    >
       {/* Header */}
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
         <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
@@ -15,7 +18,7 @@ export function StepsSection() {
         <h2
           className="font-sans font-semibold mt-[14px] text-brand-900"
           style={{
-            fontSize: '34px',
+            fontSize: 'clamp(26px, 6vw, 34px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.12,
             maxWidth: '520px',
@@ -31,7 +34,7 @@ export function StepsSection() {
       {/* Steps — each child gets its own whileInView + delay; the grid container has overflow:hidden
           so we can't use a staggerContainer wrapper (IntersectionObserver can't observe display:contents) */}
       <div
-        className="grid grid-cols-3 border border-neutral-200 bg-white"
+        className="grid grid-cols-1 md:grid-cols-3 border border-neutral-200 bg-white"
         style={{
           borderRadius: '10px',
           overflow: 'hidden',
@@ -44,10 +47,7 @@ export function StepsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: EASE, delay: i * 0.09 }}
             viewport={VP}
-            className={i < steps.length - 1 ? 'border-r border-neutral-200' : ''}
-            style={{
-              padding: '34px 30px',
-            }}
+            className={`px-6 py-7 md:px-[30px] md:py-[34px] ${i < steps.length - 1 ? 'border-b md:border-b-0 md:border-r border-neutral-200' : ''}`}
           >
             <div className="font-mono text-[13px] tracking-[.08em] text-brand-500">
               PASO {p.n}
