@@ -1,0 +1,20 @@
+[
+  {
+    "n": "01",
+    "ic": "clock",
+    "t": "Aprobación en 24 horas",
+    "d": "Solicita en minutos y recibe tu dinero el próximo día hábil. Sin esperas, sin citas presenciales."
+  },
+  {
+    "n": "02",
+    "ic": "shield",
+    "t": "100% seguro y confiable",
+    "d": "Tus datos están protegidos. Proceso transparente, sin costos ocultos ni letra pequeña."
+  },
+  {
+    "n": "03",
+    "ic": "wallet",
+    "t": "Sin fiador ni historial",
+    "d": "Solo tu pasaporte vigente. No pedimos fiador ni revisamos historial crediticio previo."
+  }
+]

@@ -1,0 +1,68 @@
+import type { ReactNode } from 'react'
+
+interface ButtonProps {
+  variant?: 'primary' | 'accent' | 'outline' | 'whatsapp'
+  size?: 'md' | 'lg'
+  icon?: ReactNode
+  href?: string
+  target?: string
+  rel?: string
+  type?: 'button' | 'submit'
+  onClick?: () => void
+  children: ReactNode
+  className?: string
+}
+
+const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
+  primary:
+    'bg-sage-900 text-white hover:bg-sage-800 transition-colors duration-200',
+  accent:
+    'bg-sage-300 text-sage-900 border border-sage-300 hover:bg-sage-200 transition-colors duration-200',
+  outline:
+    'bg-transparent text-sage-300 border border-sage-600 hover:border-sage-500 hover:bg-sage-900/30 transition-colors duration-200',
+  whatsapp:
+    'bg-whatsapp text-white hover:bg-whatsapp-hover transition-colors duration-200',
+}
+
+const sizes: Record<NonNullable<ButtonProps['size']>, string> = {
+  md: 'text-sm font-semibold px-[18px] py-2.5',
+  lg: 'text-base font-semibold px-[26px] py-[15px]',
+}
+
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  icon,
+  href,
+  target,
+  rel,
+  type = 'button',
+  onClick,
+  children,
+  className = '',
+}: ButtonProps) {
+  const cls = [
+    'inline-flex items-center justify-center gap-2 rounded-md outline-none cursor-pointer',
+    variants[variant],
+    sizes[size],
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  if (href) {
+    return (
+      <a href={href} target={target} rel={rel} className={cls}>
+        {icon && <span className="shrink-0">{icon}</span>}
+        {children}
+      </a>
+    )
+  }
+
+  return (
+    <button type={type} onClick={onClick} className={cls}>
+      {icon && <span className="shrink-0">{icon}</span>}
+      {children}
+    </button>
+  )
+}

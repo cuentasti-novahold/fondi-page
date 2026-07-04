@@ -1,0 +1,47 @@
+const NAV_LINKS = [
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Cómo funciona', href: '#como-funciona' },
+  { label: 'Simulador', href: '#simulador' },
+  { label: 'Nosotros', href: '#nosotros' },
+] as const
+
+export function Navbar() {
+  return (
+    <header
+      className="sticky top-0 z-50 h-[70px] flex items-center justify-between px-10 bg-sage-900 border-b border-sage-800"
+    >
+      {/* Logo */}
+      <a href="#hero" className="flex items-center gap-[9px] no-underline">
+        <span
+          className="inline-flex w-[30px] h-[30px] rounded-[7px] items-center justify-center font-serif font-semibold text-lg italic bg-sage-300 text-sage-900"
+        >
+          F
+        </span>
+        <span className="font-sans font-bold text-[19px] tracking-[.02em] text-white">
+          FONDI
+        </span>
+      </a>
+
+      {/* Nav links */}
+      <nav className="hidden md:flex gap-[30px] items-center">
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-sm font-medium text-sage-300 hover:text-white transition-colors duration-200 no-underline"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      {/* CTA */}
+      <a
+        href={`#contacto`}
+        className="text-sm font-semibold px-[18px] py-2.5 rounded-md no-underline transition-colors duration-200 bg-sage-300 text-sage-900 hover:bg-sage-400"
+      >
+        Solicitar crédito →
+      </a>
+    </header>
+  )
+}

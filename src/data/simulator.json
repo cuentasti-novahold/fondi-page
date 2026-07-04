@@ -1,0 +1,13 @@
+{
+  "monthlyRate": 0.05,
+  "montoMin": 500,
+  "montoMax": 10000,
+  "montoStep": 500,
+  "montoDefault": 2500,
+  "plazoMin": 3,
+  "plazoMax": 36,
+  "plazoStep": 3,
+  "plazoDefault": 12,
+  "quickAmounts": [500, 1500, 3000, 5000],
+  "waNumber": "19804068356"
+}
