@@ -5,7 +5,7 @@ import { EASE } from '@/components/motion'
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Cómo funciona', href: '#como-funciona' },
-  { label: 'Simulador', href: '#simulador' },
+  { label: 'Montos', href: '#montos' },
   { label: 'Nosotros', href: '#nosotros' },
 ] as const
 

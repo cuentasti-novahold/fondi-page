@@ -5,7 +5,8 @@ import {
   HeroSection,
   TrustBarSection,
   BenefitsSection,
-  SimulatorSection,
+  // SimulatorSection, — sin tasas reales todavía; ver AmountSelectorSection más abajo. Reactivar cuando el producto tenga condiciones definidas.
+  AmountSelectorSection,
   StepsSection,
   ServicesSection,
   AboutSection,
@@ -22,7 +23,8 @@ function App() {
         <HeroSection />
         <TrustBarSection />
         <BenefitsSection />
-        <SimulatorSection />
+        {/* <SimulatorSection /> */}
+        <AmountSelectorSection />
         <StepsSection />
         <ServicesSection />
         <AboutSection />
