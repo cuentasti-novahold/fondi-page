@@ -79,8 +79,7 @@ export function AmountSelectorSection() {
           className="bg-white p-6 md:p-9 mt-8 lg:mt-0 w-full lg:max-w-[620px]"
           style={{
             borderRadius: "12px",
-            boxShadow:
-              "0 30px 60px -18px rgba(11,63,124,.35), 0 8px 24px rgba(11,63,124,.12)",
+            boxShadow: "var(--shadow-brand-xl)",
           }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

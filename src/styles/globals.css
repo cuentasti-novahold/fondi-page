@@ -46,6 +46,14 @@
 
   /* Easing */
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Shadows — reuse brand/whatsapp colors instead of hardcoding rgba per component */
+  --shadow-brand-sm: 0 1px 4px rgba(11, 63, 124, 0.25);
+  --shadow-brand-md: 0 2px 8px rgba(11, 63, 124, 0.15);
+  --shadow-brand-md-strong: 0 2px 8px rgba(11, 63, 124, 0.2);
+  --shadow-brand-lg: 0 20px 40px -12px rgba(11, 63, 124, 0.12), 0 2px 6px rgba(11, 63, 124, 0.05);
+  --shadow-brand-xl: 0 30px 60px -18px rgba(11, 63, 124, 0.35), 0 8px 24px rgba(11, 63, 124, 0.12);
+  --shadow-whatsapp: 0 12px 28px -8px rgba(29, 168, 81, 0.5), 0 4px 10px rgba(29, 168, 81, 0.25);
 }
 
 html {
@@ -54,15 +62,15 @@ html {
 
 body {
   margin: 0;
-  background: #0B3F7C;
+  background: var(--color-brand-900);
   color: #fff;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #AFC4DE;
-  color: #0B3F7C;
+  background: var(--color-brand-300);
+  color: var(--color-brand-900);
 }
 
 /* Range slider — custom styling */
@@ -71,7 +79,7 @@ input[type="range"] {
   appearance: none;
   width: 100%;
   height: 4px;
-  background: #E6EAEF;
+  background: var(--color-neutral-200);
   border-radius: 2px;
   cursor: pointer;
   outline: none;
@@ -83,9 +91,9 @@ input[type="range"]::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #0B3F7C;
+  background: var(--color-brand-900);
   border: 2.5px solid #fff;
-  box-shadow: 0 1px 4px rgba(11, 63, 124, 0.25);
+  box-shadow: var(--shadow-brand-sm);
   cursor: pointer;
 }
 
@@ -93,9 +101,9 @@ input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #0B3F7C;
+  background: var(--color-brand-900);
   border: 2.5px solid #fff;
-  box-shadow: 0 1px 4px rgba(11, 63, 124, 0.25);
+  box-shadow: var(--shadow-brand-sm);
   cursor: pointer;
   border: none;
 }
@@ -105,15 +113,15 @@ input[type="range"]::-moz-range-thumb {
   transition: border-color 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .fondi-input:focus {
-  border-color: #1E55A5;
+  border-color: var(--color-brand-600);
   box-shadow: 0 0 0 3px rgba(30, 85, 165, 0.16);
   outline: none;
 }
 .fondi-input[aria-invalid="true"] {
-  border-color: #B8493D;
+  border-color: var(--color-status-red);
 }
 .fondi-input[aria-invalid="true"]:focus {
-  border-color: #B8493D;
+  border-color: var(--color-status-red);
   box-shadow: 0 0 0 3px rgba(184, 73, 61, 0.16);
 }
 
@@ -133,8 +141,8 @@ input[type="range"]::-moz-range-thumb {
 
 .fondi-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px -12px rgba(11, 63, 124, 0.12), 0 2px 6px rgba(11, 63, 124, 0.05);
-  border-color: #AFC4DE;
+  box-shadow: var(--shadow-brand-lg);
+  border-color: var(--color-brand-300);
 }
 
 /* Video modal — native <dialog>, no backdrop wrapper needed */

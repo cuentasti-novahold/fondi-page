@@ -127,7 +127,7 @@ function VideoCard({
       <div
         className="absolute left-3 bottom-3 flex items-center gap-[9px] rounded-full px-3.5 py-2 transition-all duration-300 bg-neutral-50/94"
         style={{
-          boxShadow: "0 2px 8px rgba(11, 63, 124,.15)",
+          boxShadow: "var(--shadow-brand-md)",
           transform: isActive ? "scale(1.05)" : "scale(1)",
         }}
       >
@@ -221,7 +221,7 @@ function VideoModal({ video, onClose }: VideoModalProps) {
           })()}
           <div
             className="absolute left-4 top-4 flex items-center gap-[9px] rounded-full px-3.5 py-2 bg-neutral-50/94"
-            style={{ boxShadow: "0 2px 8px rgba(11, 63, 124,.15)" }}
+            style={{ boxShadow: "var(--shadow-brand-md)" }}
           >
             <span className="font-mono text-xs font-medium text-brand-900">
               {rendered.t}
@@ -233,7 +233,7 @@ function VideoModal({ video, onClose }: VideoModalProps) {
             autoFocus
             aria-label="Cerrar video"
             className="absolute -right-2 -top-2 sm:right-3 sm:top-3 flex h-11 w-11 items-center justify-center rounded-full bg-neutral-50/94 text-brand-900 transition-transform duration-200 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-            style={{ boxShadow: "0 2px 8px rgba(11, 63, 124,.2)" }}
+            style={{ boxShadow: "var(--shadow-brand-md-strong)" }}
           >
             <svg
               width="16"

@@ -312,7 +312,7 @@ export function FloatingChatWidget() {
         aria-label={chat.open ? 'Cerrar chat' : 'Abrir chat'}
         whileTap={{ scale: 0.94 }}
         className="relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white cursor-pointer transition-colors duration-200"
-        style={{ boxShadow: '0 12px 28px -8px rgba(29,168,81,.5), 0 4px 10px rgba(29,168,81,.25)' }}
+        style={{ boxShadow: 'var(--shadow-whatsapp)' }}
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
