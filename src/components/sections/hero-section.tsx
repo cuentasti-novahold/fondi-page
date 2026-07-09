@@ -17,7 +17,10 @@ const beat = (delay: number) => ({
 
 export function HeroSection() {
   return (
-    <section id="hero" className="relative overflow-hidden bg-brand-900">
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-brand-900 flex items-center min-h-[clamp(520px,42vw,720px)]"
+    >
       {/* Background video */}
       <video
         src={hero.bgVideo}
@@ -25,8 +28,6 @@ export function HeroSection() {
         style={{
           opacity: 0.55,
           filter: "saturate(0.85)",
-          transform: "scale(1.18) translateY(6%)",
-          transformOrigin: "center",
         }}
         autoPlay
         muted
@@ -37,7 +38,7 @@ export function HeroSection() {
       <div className="absolute inset-0" />
 
       {/* Content */}
-      <div className="relative px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
+      <div className="relative w-full px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
         {/* Beat 1 — eyebrow */}
         <motion.div {...beat(0)}>
           <div className="font-mono text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-brand-300">

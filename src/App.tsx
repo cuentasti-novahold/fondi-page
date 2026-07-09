@@ -1,6 +1,6 @@
-import { MotionConfig } from 'motion/react'
-import { Navbar } from '@/components/layout'
-import { Footer } from '@/components/layout'
+import { MotionConfig } from "motion/react";
+import { Navbar } from "@/components/layout";
+import { Footer } from "@/components/layout";
 import {
   HeroSection,
   TrustBarSection,
@@ -13,8 +13,8 @@ import {
   TestimonialsSection,
   VideosSection,
   ContactSection,
-} from '@/components/sections'
-import { FloatingChatWidget } from '@/components/floating-chat-widget'
+} from "@/components/sections";
+import { FloatingChatWidget } from "@/components/floating-chat-widget";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
       <Footer />
       <FloatingChatWidget />
     </MotionConfig>
-  )
+  );
 }
 
-export default App
+export default App;
