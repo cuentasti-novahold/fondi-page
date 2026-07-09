@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { hero } from "@/data";
 import { Button } from "@/components/ui";
@@ -17,6 +18,17 @@ const beat = (delay: number) => ({
 });
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {
+      // Autoplay blocked (e.g. iOS Low Power Mode / Android Data Saver) — poster stays visible.
+    });
+  }, []);
+
   return (
     <section
       id="hero"
@@ -24,6 +36,7 @@ export function HeroSection() {
     >
       {/* Background video */}
       <video
+        ref={videoRef}
         src={hero.bgVideo}
         poster="/images/hero-bg-poster.jpg"
         preload="auto"
