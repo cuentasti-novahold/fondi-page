@@ -84,8 +84,8 @@ export function TestimonialsSection() {
           aria-label="Testimonios de clientes"
           className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pl-5 sm:pl-8 md:pl-12 pr-5 sm:pr-8 md:pr-12 pb-1 focus:outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {testimonials.map((t) => (
-            <div
+          {testimonials.map((t, i) => (
+            <motion.div
               key={t.n}
               className="fondi-card flex flex-col bg-white border border-neutral-200 p-6 md:p-[30px] snap-start shrink-0"
               style={{
@@ -93,6 +93,11 @@ export function TestimonialsSection() {
                 width: CARD_WIDTH,
                 minHeight: 232,
               }}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={VP}
+              transition={{ delay: Math.min(i, 5) * 0.05 }}
             >
               <div className="flex justify-between items-start">
                 <div className="text-status-amber" style={{ fontSize: '14px', letterSpacing: '3px' }}>
@@ -129,7 +134,7 @@ export function TestimonialsSection() {
                   {t.n}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
