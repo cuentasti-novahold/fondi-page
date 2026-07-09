@@ -11,6 +11,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [overHero, setOverHero] = useState(true)
 
   useEffect(() => {
     if (!open) return
@@ -21,8 +22,27 @@ export function Navbar() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
+  useEffect(() => {
+    const hero = document.getElementById('hero')
+    if (!hero) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setOverHero(entry.isIntersecting),
+      { rootMargin: '-71px 0px 0px 0px', threshold: 0 },
+    )
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
+
+  const transparent = overHero && !open
+
   return (
-    <header className="sticky top-0 z-50 bg-brand-900 border-b border-brand-800">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+        transparent
+          ? 'bg-transparent border-b border-transparent'
+          : 'bg-brand-900 border-b border-brand-800'
+      }`}
+    >
       <div className="h-[70px] flex items-center justify-between px-5 sm:px-8 md:px-10">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-[9px] no-underline">
