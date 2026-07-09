@@ -36,17 +36,17 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative w-full px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
-        {/* Beat 1 — eyebrow */}
-        <motion.div {...beat(0)}>
+        {/* Beat 1 — eyebrow (reserves its space now, reveals at 4s) */}
+        <motion.div {...beat(0.7)}>
           <div className="font-mono text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-brand-300">
             <span className="w-[22px] h-px bg-brand-400" />
             {hero.eyebrow}
           </div>
         </motion.div>
 
-        {/* Beat 2 — headline */}
+        {/* Beat 1 — headline (immediate) */}
         <motion.h1
-          {...beat(0.12)}
+          {...beat(0)}
           className="font-sans font-bold text-white"
           style={{
             fontSize: "clamp(34px, 9vw, 56px)",
@@ -62,9 +62,9 @@ export function HeroSection() {
           </span>
         </motion.h1>
 
-        {/* Beat 3 — subline */}
+        {/* Beat 3 — subline + CTAs (when video ends, ~7.8s) */}
         <motion.p
-          {...beat(0.26)}
+          {...beat(0.5)}
           className="font-serif text-brand-200"
           style={{
             fontSize: "clamp(17px, 4.5vw, 21px)",
@@ -77,9 +77,9 @@ export function HeroSection() {
           {hero.subline}
         </motion.p>
 
-        {/* Beat 4 — CTAs */}
+        {/* Beat 4 — CTAs (with subline, video-end) */}
         <motion.div
-          {...beat(0.4)}
+          {...beat(0.5)}
           className="flex flex-col sm:flex-row gap-3 mt-9"
         >
           <Button variant="accent" size="lg" href={hero.ctaPrimary.href}>
