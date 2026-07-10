@@ -73,6 +73,13 @@ export interface ContactQuestion {
   type: 'text' | 'boolean'
 }
 
+export interface JobOpening {
+  title: string
+  modality: string
+  location: string
+  description: string
+}
+
 export interface ContactContent {
   eyebrow: string
   headline: string

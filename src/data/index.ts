@@ -9,6 +9,7 @@ import type {
   Testimonial,
   VideoItem,
   ContactContent,
+  JobOpening,
 } from '@/types/content.types'
 
 import heroRaw from './hero.json'
@@ -21,6 +22,7 @@ import aboutRaw from './about.json'
 import testimonialsRaw from './testimonials.json'
 import videosRaw from './videos.json'
 import contactRaw from './contact.json'
+import jobsRaw from './jobs.json'
 
 export const hero = heroRaw satisfies HeroContent
 export const stats = statsRaw satisfies Stat[]
@@ -32,3 +34,4 @@ export const about = aboutRaw satisfies AboutContent
 export const testimonials = testimonialsRaw satisfies Testimonial[]
 export const videos = videosRaw satisfies VideoItem[]
 export const contact = contactRaw as ContactContent
+export const jobs = jobsRaw satisfies JobOpening[]
