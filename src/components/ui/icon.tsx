@@ -17,7 +17,9 @@ const paths: Record<string, string> = {
   mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
   handshake: '<path d="M8 12l3 3 5-5"/><path d="M2 12l5-5 4 3-3 4-3-1z"/><path d="M22 12l-5-5-4 3 3 4 3-1z"/>',
   badge: '<circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/>',
+  'dollar-sign': '<path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
   users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14c2.5.3 4.5 2.5 4.5 6"/>',
+  
 }
 
 export function Icon({ name, size = 24, className }: IconProps) {

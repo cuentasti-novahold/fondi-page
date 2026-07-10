@@ -1,18 +1,24 @@
 [
   {
     "n": "01",
-    "ic": "clock",
-    "t": "Aprobación en 24 horas",
-    "d": "Solicita en minutos y recibe tu dinero el próximo día hábil. Sin esperas, sin citas presenciales."
+    "ic": "dollar-sign",
+    "t": "Sin inversión inicial",
+    "d": "Olvídate de los pagos por adelantado. Comienza tu proceso hoy mismo con $0 de cuota inicial."
   },
   {
     "n": "02",
+    "ic": "clock",
+    "t": "Aprobación en 24 horas",
+    "d": "Solicita en minutos y recibe tu dinero el próximo día hábil. Sin esperas"
+  },
+  {
+    "n": "03",
     "ic": "shield",
     "t": "100% seguro y confiable",
     "d": "Tus datos están protegidos. Proceso transparente, sin costos ocultos ni letra pequeña."
   },
   {
-    "n": "03",
+    "n": "04",
     "ic": "wallet",
     "t": "Sin fiador ni historial",
     "d": "Solo tu pasaporte vigente. No pedimos fiador ni revisamos historial crediticio previo."
