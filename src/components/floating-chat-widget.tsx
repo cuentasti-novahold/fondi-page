@@ -74,6 +74,7 @@ interface ChatState {
   typing: boolean
   done: boolean
   monto?: string
+  turnstileToken: string | null
 }
 
 const INITIAL_STATE: ChatState = {
@@ -84,12 +85,15 @@ const INITIAL_STATE: ChatState = {
   inputValue: '',
   typing: true,
   done: false,
+  turnstileToken: null,
 }
 
 export function FloatingChatWidget() {
   const { questions } = contact
   const [chat, setChat] = useState<ChatState>(INITIAL_STATE)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const turnstileContainerRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     const teaserTimer = setTimeout(() => {
@@ -116,6 +120,47 @@ export function FloatingChatWidget() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }, [chat.step, chat.done, chat.typing])
+
+  // Client-side only: no backend to verify the token server-side, so this only
+  // filters headless/simple bots, not a bot that calls the wa.me link directly.
+  useEffect(() => {
+    if (!chat.open || !chat.done) return
+    setChat((prev) => (prev.turnstileToken === null ? prev : { ...prev, turnstileToken: null }))
+
+    let cancelled = false
+    let pollId: ReturnType<typeof setInterval> | null = null
+
+    const renderWidget = () => {
+      if (cancelled || !turnstileContainerRef.current || !window.turnstile) return
+      const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY
+      if (!siteKey) return
+      turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: siteKey,
+        callback: (token) => setChat((prev) => ({ ...prev, turnstileToken: token })),
+        'expired-callback': () => setChat((prev) => ({ ...prev, turnstileToken: null })),
+      })
+    }
+
+    if (window.turnstile) {
+      renderWidget()
+    } else {
+      pollId = setInterval(() => {
+        if (window.turnstile) {
+          if (pollId) clearInterval(pollId)
+          renderWidget()
+        }
+      }, 150)
+    }
+
+    return () => {
+      cancelled = true
+      if (pollId) clearInterval(pollId)
+      if (turnstileWidgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidgetIdRef.current)
+        turnstileWidgetIdRef.current = null
+      }
+    }
+  }, [chat.open, chat.done])
 
   const currentQuestion = questions[chat.step]
 
@@ -202,14 +247,15 @@ export function FloatingChatWidget() {
                       </li>
                     ))}
                   </ul>
+                  <div ref={turnstileContainerRef} className="flex justify-center mb-3.5" />
                   <Button
                     variant="whatsapp"
                     size="lg"
-                    href={waHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={chat.turnstileToken ? waHref : undefined}
+                    target={chat.turnstileToken ? '_blank' : undefined}
+                    rel={chat.turnstileToken ? 'noopener noreferrer' : undefined}
                     icon={<WaIcon />}
-                    className="justify-center w-full"
+                    className={`justify-center w-full ${chat.turnstileToken ? '' : 'opacity-50 pointer-events-none'}`}
                   >
                     Enviar por WhatsApp
                   </Button>
