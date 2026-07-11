@@ -29,20 +29,40 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    const hero = document.getElementById("hero");
-    if (!hero) {
-      setOverHero(false);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => setOverHero(entry.isIntersecting),
-      { rootMargin: "-71px 0px 0px 0px", threshold: 0 },
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
+    let observer: IntersectionObserver | null = null;
+    let pollId: ReturnType<typeof setInterval> | null = null;
+
+    const tryObserve = () => {
+      const hero = document.getElementById("hero");
+      if (!hero) return false;
+      observer = new IntersectionObserver(
+        ([entry]) => setOverHero(entry.isIntersecting),
+        { rootMargin: "-71px 0px 0px 0px", threshold: 0 },
+      );
+      observer.observe(hero);
+      return true;
+    };
+
     // Navbar persists across route changes (it lives in the shared Layout), but
     // #hero belongs to HomePage and unmounts/remounts with the route — re-run on
     // pathname change so the observer always targets the current #hero node.
+    // The page-transition in Layout delays the new route's mount past this
+    // effect's commit (it waits for the outgoing page's exit animation), so
+    // #hero may not exist yet — poll until it does instead of giving up.
+    if (!tryObserve()) {
+      setOverHero(false);
+      pollId = setInterval(() => {
+        if (tryObserve() && pollId) {
+          clearInterval(pollId);
+          pollId = null;
+        }
+      }, 50);
+    }
+
+    return () => {
+      if (pollId) clearInterval(pollId);
+      observer?.disconnect();
+    };
   }, [pathname]);
 
   const transparent = pathname === "/" && overHero && !open;
