@@ -1,24 +1,22 @@
-import { contact } from '@/data'
+import { contact } from "@/data";
 
 export function Footer() {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-brand-900 text-brand-300" style={{ paddingTop: '60px' }}>
+    <footer
+      className="bg-brand-900 text-brand-300"
+      style={{ paddingTop: "60px" }}
+    >
       {/* 3-column grid */}
-      <div
-        className="px-5 sm:px-8 md:px-12 pb-10 border-b border-brand-800"
-      >
+      <div className="px-5 sm:px-8 md:px-12 pb-10 border-b border-brand-800">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-[9px]">
-              <span
-                className="inline-flex w-[30px] h-[30px] rounded-[7px] items-center justify-center bg-brand-300"
-              >
-                <img src="/images/logo-icon.png" alt="" className="w-[21px] h-[21px] object-contain" />
-              </span>
-              <span className="font-sans font-bold text-[19px] text-white">FONDI</span>
-            </div>
+            <img
+              src="/images/balck-logo.png"
+              alt="Fondi"
+              className="h-15 w-auto object-contain"
+            />
             <p className="font-serif italic text-[19px] mt-[18px] max-w-[340px] leading-[1.45] text-brand-200">
               Estamos aquí para apoyarte cuando más lo necesitas.
             </p>
@@ -26,9 +24,7 @@ export function Footer() {
 
           {/* Contacto */}
           <div>
-            <div
-              className="font-mono text-[11.5px] tracking-[.14em] uppercase mb-4 text-brand-500"
-            >
+            <div className="font-mono text-[11.5px] tracking-[.14em] uppercase mb-4 text-brand-500">
               Contacto
             </div>
             <div className="flex flex-col gap-2.5 text-[14.5px] text-brand-200">
@@ -52,9 +48,7 @@ export function Footer() {
 
           {/* Requisitos */}
           <div>
-            <div
-              className="font-mono text-[11.5px] tracking-[.14em] uppercase mb-4 text-brand-500"
-            >
+            <div className="font-mono text-[11.5px] tracking-[.14em] uppercase mb-4 text-brand-500">
               Requisitos
             </div>
             <div className="flex flex-col gap-2.5 text-[14.5px] text-brand-200">
@@ -67,12 +61,10 @@ export function Footer() {
       </div>
 
       {/* Bottom line */}
-      <div
-        className="px-5 sm:px-8 md:px-12 py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500"
-      >
+      <div className="px-5 sm:px-8 md:px-12 py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500">
         <span>© {year} Fondi · Todos los derechos reservados</span>
         <span>Créditos sujetos a evaluación</span>
       </div>
     </footer>
-  )
+  );
 }
