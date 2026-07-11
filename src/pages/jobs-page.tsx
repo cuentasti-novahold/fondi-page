@@ -1,19 +1,14 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
 import { jobs, contact } from '@/data'
-import { Icon, Button } from '@/components/ui'
+import { Icon, Button, Badge, Eyebrow, IconRow, cardClassName, cardStyle } from '@/components/ui'
 import { fadeUp, slideInLeft, slideInRight, staggerContainer, staggerItem } from '@/components/motion'
 import { openFondiChat } from '@/lib/chat-bridge'
+import { formatDate } from '@/lib/format'
 import { JobModal } from '@/components/job-modal'
 import type { JobOpening } from '@/types/content.types'
 
 const VP = { once: true, amount: 0.2 } as const
-
-function formatShortDate(iso: string) {
-  return new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'short', year: 'numeric' }).format(
-    new Date(`${iso}T00:00:00`),
-  )
-}
 
 const WHY_FONDI = [
   {
@@ -46,9 +41,7 @@ export function JobsPage() {
         {/* Header — text + photo, two columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div variants={slideInLeft} initial="hidden" whileInView="visible" viewport={VP}>
-            <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
-              Trabajá con nosotros
-            </div>
+            <Eyebrow>Trabajá con nosotros</Eyebrow>
             <h1
               className="font-sans font-semibold mt-[14px] text-brand-900"
               style={{
@@ -130,9 +123,7 @@ export function JobsPage() {
 
         {/* Open roles */}
         <div className="mt-10 md:mt-14 pt-10 md:pt-12 border-t border-neutral-200">
-          <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400 mb-6">
-            Búsquedas abiertas
-          </div>
+          <Eyebrow className="mb-6">Búsquedas abiertas</Eyebrow>
 
           {activeJobs.length === 0 ? (
             <motion.div
@@ -140,8 +131,8 @@ export function JobsPage() {
               initial="hidden"
               whileInView="visible"
               viewport={VP}
-              className="fondi-card bg-neutral-50 border border-neutral-200 p-8 md:p-10 text-center"
-              style={{ borderRadius: '10px' }}
+              className={`${cardClassName()} p-8 md:p-10 text-center`}
+              style={cardStyle()}
             >
               <p className="text-[15px] leading-[1.55] m-0 mb-6 text-neutral-600">
                 Por el momento no tenemos vacantes abiertas, pero nos encantaría conocerte.
@@ -165,8 +156,8 @@ export function JobsPage() {
                   type="button"
                   onClick={() => setSelectedJob(job)}
                   variants={staggerItem}
-                  className="fondi-card flex flex-col text-left bg-neutral-50 border border-neutral-200 p-6 md:p-[30px] cursor-pointer overflow-hidden"
-                  style={{ borderRadius: '10px', height: '272px' }}
+                  className={`${cardClassName({ interactive: true })} flex flex-col text-left p-6 md:p-[30px] overflow-hidden`}
+                  style={{ ...cardStyle(), height: '272px' }}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h3
@@ -175,11 +166,7 @@ export function JobsPage() {
                     >
                       {job.title}
                     </h3>
-                    <span
-                      className="shrink-0 font-mono text-[11px] font-medium tracking-[.04em] uppercase text-brand-700 bg-brand-100 px-2.5 py-1 rounded-full"
-                    >
-                      {job.modality}
-                    </span>
+                    <Badge>{job.modality}</Badge>
                   </div>
 
                   {/* Scannable facts instead of free-text prose — fixed-length
@@ -187,14 +174,8 @@ export function JobsPage() {
                       predictable regardless of how long the description is;
                       the full description only shows in the detail modal. */}
                   <div className="flex flex-col gap-1.5 mt-3">
-                    <div className="flex items-center gap-1.5 text-[13px] text-neutral-500">
-                      <Icon name="home" size={14} />
-                      {job.location}
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[13px] text-neutral-500">
-                      <Icon name="clock" size={14} />
-                      Publicado el {formatShortDate(job.publishedAt)}
-                    </div>
+                    <IconRow icon="home">{job.location}</IconRow>
+                    <IconRow icon="clock">Publicado el {formatDate(job.publishedAt)}</IconRow>
                     {job.salary && (
                       <div className="text-[14px] font-medium text-brand-900 mt-0.5">{job.salary}</div>
                     )}
@@ -204,14 +185,22 @@ export function JobsPage() {
                       how much metadata rendered above, so cards in the same grid
                       row line up and the fixed card height above never overflows. */}
                   <div className="flex flex-col gap-2 mt-auto pt-5 border-t border-neutral-200">
-                    <div className="flex items-center gap-2.5 text-[13px] text-neutral-600">
-                      <Icon name="phone" size={14} className="stroke-brand-600" />
+                    <IconRow
+                      icon="phone"
+                      iconClassName="stroke-brand-600"
+                      gapClassName="gap-2.5"
+                      textClassName="text-[13px] text-neutral-600"
+                    >
                       {contact.phone}
-                    </div>
-                    <div className="flex items-center gap-2.5 text-[13px] text-neutral-600">
-                      <Icon name="mail" size={14} className="stroke-brand-600" />
+                    </IconRow>
+                    <IconRow
+                      icon="mail"
+                      iconClassName="stroke-brand-600"
+                      gapClassName="gap-2.5"
+                      textClassName="text-[13px] text-neutral-600"
+                    >
                       {contact.email}
-                    </div>
+                    </IconRow>
                     <div className="flex items-center gap-1.5 text-[13px] font-medium text-brand-700 mt-1.5">
                       Ver detalle completo →
                     </div>

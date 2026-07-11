@@ -1,2 +1,6 @@
 export { Button } from './button'
 export { Icon } from './icon'
+export { Badge } from './badge'
+export { Eyebrow } from './eyebrow'
+export { IconRow } from './icon-row'
+export { cardClassName, cardStyle } from './card'
