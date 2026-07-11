@@ -54,7 +54,7 @@ export function SimulatorSection() {
           Simulador de crédito
         </div>
         <h2
-          className="font-sans font-semibold mt-[14px] mb-4 text-white"
+          className="font-sans font-semibold mt-[14px] mb-4 text-on-brand"
           style={{ fontSize: 'clamp(26px, 6vw, 34px)', letterSpacing: '-0.02em', lineHeight: 1.12, textWrap: 'balance' }}
         >
           Calcula tu crédito <span className="font-serif italic font-medium">en segundos.</span>
@@ -70,7 +70,7 @@ export function SimulatorSection() {
         initial="hidden"
         whileInView="visible"
         viewport={VP}
-        className="bg-white p-6 md:p-9"
+        className="bg-neutral-50 p-6 md:p-9"
         style={{
           maxWidth: '640px',
           margin: '32px auto 0',
@@ -111,7 +111,7 @@ export function SimulatorSection() {
                   key={amt}
                   onClick={() => setMonto(amt)}
                   className={`font-mono text-[11.5px] font-medium px-2.5 py-1.5 rounded-full cursor-pointer transition-all duration-300 border ${
-                    monto === amt ? 'border-brand-900 bg-brand-900 text-white' : 'border-neutral-300 bg-white text-neutral-600'
+                    monto === amt ? 'border-brand-900 bg-brand-900 text-on-brand' : 'border-neutral-300 bg-neutral-50 text-neutral-600'
                   }`}
                 >
                   {fmt(amt)}

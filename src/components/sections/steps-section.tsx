@@ -8,7 +8,7 @@ export function StepsSection() {
   return (
     <section
       id="como-funciona"
-      className="bg-white px-5 sm:px-8 md:px-12 pt-16 pb-12 md:pt-[120px] md:pb-[76px]"
+      className="bg-neutral-50 px-5 sm:px-8 md:px-12 pt-16 pb-12 md:pt-[120px] md:pb-[76px]"
     >
       {/* Header */}
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
@@ -34,7 +34,7 @@ export function StepsSection() {
       {/* Steps — each child gets its own whileInView + delay; the grid container has overflow:hidden
           so we can't use a staggerContainer wrapper (IntersectionObserver can't observe display:contents) */}
       <div
-        className="grid grid-cols-1 md:grid-cols-3 border border-neutral-200 bg-white"
+        className="grid grid-cols-1 md:grid-cols-3 border border-neutral-200 bg-neutral-50"
         style={{
           borderRadius: '10px',
           overflow: 'hidden',

@@ -44,7 +44,7 @@ export function ServicesSection() {
           <motion.div
             key={s.t}
             variants={staggerItem}
-            className="fondi-card flex gap-5 items-start bg-white border border-neutral-200 p-6 md:p-[30px]"
+            className="fondi-card flex gap-5 items-start bg-neutral-50 border border-neutral-200 p-6 md:p-[30px]"
             style={{
               borderRadius: '10px',
             }}

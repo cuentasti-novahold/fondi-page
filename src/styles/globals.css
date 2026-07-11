@@ -39,6 +39,9 @@
   --color-whatsapp: #25d366;
   --color-whatsapp-hover: #1da851;
 
+  /* On-brand — text/icon/border color for use on dark brand or whatsapp backgrounds */
+  --color-on-brand: #ffffff;
+
   /* Typography */
   --font-sans:
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

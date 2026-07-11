@@ -75,7 +75,7 @@ export function HeroSection() {
         {/* Beat 1 — headline (immediate) */}
         <motion.h1
           {...beat(0)}
-          className="font-sans font-bold text-white"
+          className="font-sans font-bold text-on-brand"
           style={{
             fontSize: "clamp(34px, 9vw, 56px)",
             lineHeight: 1.04,

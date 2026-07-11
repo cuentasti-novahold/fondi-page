@@ -17,7 +17,7 @@ export function AboutSection() {
           {about.eyebrow}
         </div>
         <h2
-          className="font-serif italic font-normal text-white"
+          className="font-serif italic font-normal text-on-brand"
           style={{
             fontSize: 'clamp(28px, 7vw, 38px)',
             lineHeight: 1.1,
@@ -58,7 +58,7 @@ export function AboutSection() {
 
       {/* Values — full width, stagger */}
       <motion.div
-        className="col-span-1 md:col-span-2 mt-10 md:mt-14 pt-10 md:pt-12 border-t border-white/10"
+        className="col-span-1 md:col-span-2 mt-10 md:mt-14 pt-10 md:pt-12 border-t border-on-brand/10"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -75,7 +75,7 @@ export function AboutSection() {
             <motion.div
               key={v.title}
               variants={staggerItem}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-5"
+              className="rounded-lg border border-on-brand/10 bg-on-brand/[0.04] p-5"
             >
               <div
                 className="flex items-center justify-center bg-brand-300/15 text-brand-300 ring-1 ring-inset ring-brand-300/20"
@@ -84,7 +84,7 @@ export function AboutSection() {
                 <Icon name={v.icon} size={22} />
               </div>
               <h3
-                className="font-sans font-semibold text-white"
+                className="font-sans font-semibold text-on-brand"
                 style={{ fontSize: '16px', letterSpacing: '-0.01em', margin: '16px 0 6px' }}
               >
                 {v.title}

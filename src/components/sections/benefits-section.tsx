@@ -7,7 +7,7 @@ const VP = { once: true, amount: 0.2 } as const;
 
 export function BenefitsSection() {
   return (
-    <section className="bg-white py-14 md:py-[76px] px-5 sm:px-8 md:px-12">
+    <section className="bg-neutral-50 py-14 md:py-[76px] px-5 sm:px-8 md:px-12">
       {/* Header */}
       <motion.div
         variants={fadeUp}
@@ -46,7 +46,7 @@ export function BenefitsSection() {
           <motion.div
             key={b.n}
             variants={staggerItem}
-            className="fondi-card border border-neutral-200 bg-white"
+            className="fondi-card border border-neutral-200 bg-neutral-50"
             style={{
               padding: "32px 28px",
               borderRadius: "10px",
