@@ -103,7 +103,7 @@ export function JobsPage() {
               <motion.div
                 key={item.title}
                 variants={staggerItem}
-                className="rounded-lg border border-neutral-200 bg-white p-5"
+                className="rounded-lg border border-neutral-200 bg-neutral-50 p-5"
               >
                 <div
                   className="flex items-center justify-center bg-brand-900/[0.08] text-brand-900"
@@ -140,7 +140,7 @@ export function JobsPage() {
               initial="hidden"
               whileInView="visible"
               viewport={VP}
-              className="fondi-card bg-white border border-neutral-200 p-8 md:p-10 text-center"
+              className="fondi-card bg-neutral-50 border border-neutral-200 p-8 md:p-10 text-center"
               style={{ borderRadius: '10px' }}
             >
               <p className="text-[15px] leading-[1.55] m-0 mb-6 text-neutral-600">
@@ -165,7 +165,7 @@ export function JobsPage() {
                   type="button"
                   onClick={() => setSelectedJob(job)}
                   variants={staggerItem}
-                  className="fondi-card flex flex-col text-left bg-white border border-neutral-200 p-6 md:p-[30px] cursor-pointer overflow-hidden"
+                  className="fondi-card flex flex-col text-left bg-neutral-50 border border-neutral-200 p-6 md:p-[30px] cursor-pointer overflow-hidden"
                   style={{ borderRadius: '10px', height: '272px' }}
                 >
                   <div className="flex items-start justify-between gap-3">

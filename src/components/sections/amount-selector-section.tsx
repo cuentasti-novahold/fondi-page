@@ -47,7 +47,7 @@ export function AmountSelectorSection() {
             Montos disponibles
           </div>
           <h2
-            className="font-sans font-semibold mt-[14px] mb-4 text-white"
+            className="font-sans font-semibold mt-[14px] mb-4 text-on-brand"
             style={{
               fontSize: "clamp(26px, 6vw, 34px)",
               letterSpacing: "-0.02em",
@@ -73,7 +73,7 @@ export function AmountSelectorSection() {
           initial="hidden"
           whileInView="visible"
           viewport={VP}
-          className="bg-white p-6 md:p-9 mt-8 lg:mt-0 w-full lg:max-w-[620px]"
+          className="bg-neutral-50 p-6 md:p-9 mt-8 lg:mt-0 w-full lg:max-w-[620px]"
           style={{
             borderRadius: "12px",
             boxShadow: "var(--shadow-brand-xl)",
@@ -93,8 +93,8 @@ export function AmountSelectorSection() {
                       onClick={() => setMonto(amt)}
                       className={`font-mono text-sm font-medium px-4 py-2.5 rounded-full cursor-pointer transition-all duration-300 border ${
                         monto === amt
-                          ? "border-brand-900 bg-brand-900 text-white"
-                          : "border-neutral-300 bg-white text-neutral-600"
+                          ? "border-brand-900 bg-brand-900 text-on-brand"
+                          : "border-neutral-300 bg-neutral-50 text-neutral-600"
                       }`}
                     >
                       {fmt(amt)}

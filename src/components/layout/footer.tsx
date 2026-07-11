@@ -30,7 +30,7 @@ export function Footer() {
             <div className="flex flex-col gap-2.5 text-[14.5px] text-brand-200">
               <a
                 href={contact.telHref}
-                className="no-underline hover:text-white transition-colors text-brand-200"
+                className="no-underline hover:text-on-brand transition-colors text-brand-200"
               >
                 {contact.phone}
               </a>
@@ -39,7 +39,7 @@ export function Footer() {
                 href={`https://wa.me/${contact.waNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="no-underline hover:text-white transition-colors text-brand-200"
+                className="no-underline hover:text-on-brand transition-colors text-brand-200"
               >
                 WhatsApp →
               </a>

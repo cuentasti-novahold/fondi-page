@@ -69,9 +69,9 @@ export function ContactSection() {
 
         {/* Right: chat preview card — slides from right */}
         <motion.div variants={slideInRight} initial="hidden" whileInView="visible" viewport={VP}>
-          <div className="fondi-card flex flex-col rounded-xl bg-white border border-neutral-200 p-6 md:p-8">
+          <div className="fondi-card flex flex-col rounded-xl bg-neutral-50 border border-neutral-200 p-6 md:p-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="shrink-0 flex items-center justify-center w-11 h-11 rounded-full bg-brand-900 text-white font-serif italic text-lg">
+              <div className="shrink-0 flex items-center justify-center w-11 h-11 rounded-full bg-brand-900 text-on-brand font-serif italic text-lg">
                 {contact.assistantName.charAt(0)}
               </div>
               <div>

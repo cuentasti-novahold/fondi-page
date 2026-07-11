@@ -73,7 +73,7 @@ export function Navbar() {
             <Link
               key={link.href}
               to={link.href}
-              className="text-sm font-medium text-brand-300 hover:text-white transition-colors duration-300 no-underline"
+              className="text-sm font-medium text-brand-300 hover:text-on-brand transition-colors duration-300 no-underline"
             >
               {link.label}
             </Link>
@@ -97,7 +97,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-brand-300 hover:text-white transition-colors duration-300"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-brand-300 hover:text-on-brand transition-colors duration-300"
           >
             <svg
               width="22"
@@ -135,7 +135,7 @@ export function Navbar() {
                   key={link.href}
                   to={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-[15px] font-medium text-brand-300 hover:text-white transition-colors duration-300 no-underline py-3 border-b border-brand-800 last:border-b-0"
+                  className="text-[15px] font-medium text-brand-300 hover:text-on-brand transition-colors duration-300 no-underline py-3 border-b border-brand-800 last:border-b-0"
                 >
                   {link.label}
                 </Link>

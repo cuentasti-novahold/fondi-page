@@ -49,7 +49,7 @@ export function JobModal({ job, onClose }: JobModalProps) {
       }}
     >
       {rendered && (
-        <div className="relative bg-white flex flex-col h-full" style={{ borderRadius: '14px' }}>
+        <div className="relative bg-neutral-50 flex flex-col h-full" style={{ borderRadius: '14px' }}>
           {/* Header — stays put; the body scrolls independently, so the close
               button and title are always reachable regardless of description length. */}
           <div className="flex items-start justify-between gap-3 p-6 pb-0 pr-14 md:p-8 md:pb-0 md:pr-16 shrink-0">

@@ -43,7 +43,7 @@ export function TestimonialsSection() {
   const hasOverflow = scrollState.prev || scrollState.next
 
   return (
-    <section className="bg-white py-14 md:py-[76px] overflow-hidden">
+    <section className="bg-neutral-50 py-14 md:py-[76px] overflow-hidden">
       {/* Header */}
       <motion.div
         className="px-5 sm:px-8 md:px-12 flex items-end justify-between gap-6"
@@ -92,7 +92,7 @@ export function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.n}
-              className="fondi-card flex flex-col bg-white border border-neutral-200 p-6 md:p-[30px] snap-start shrink-0"
+              className="fondi-card flex flex-col bg-neutral-50 border border-neutral-200 p-6 md:p-[30px] snap-start shrink-0"
               style={{
                 borderRadius: '10px',
                 width: CARD_WIDTH,
@@ -145,10 +145,10 @@ export function TestimonialsSection() {
 
         {/* Edge fades — signal there's more without a dot indicator */}
         {scrollState.prev && (
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-neutral-50 to-transparent" />
         )}
         {scrollState.next && (
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-neutral-50 to-transparent" />
         )}
       </div>
 

@@ -27,7 +27,7 @@ const SendIcon = () => (
 function Avatar({ size = 36 }: { size?: number }) {
   return (
     <div
-      className="shrink-0 flex items-center justify-center rounded-full bg-white/15 text-white font-serif italic"
+      className="shrink-0 flex items-center justify-center rounded-full bg-on-brand/15 text-on-brand font-serif italic"
       style={{ width: size, height: size, fontSize: size * 0.44 }}
     >
       {contact.assistantName.charAt(0)}
@@ -59,7 +59,7 @@ function BotBubble({ children }: { children: React.ReactNode }) {
 
 function UserBubble({ children }: { children: React.ReactNode }) {
   return (
-    <div className="self-end max-w-[82%] rounded-2xl rounded-br-sm bg-brand-900 text-white text-[13.5px] leading-[1.5] px-3.5 py-2.5">
+    <div className="self-end max-w-[82%] rounded-2xl rounded-br-sm bg-brand-900 text-on-brand text-[13.5px] leading-[1.5] px-3.5 py-2.5">
       {children}
     </div>
   )
@@ -194,13 +194,13 @@ export function FloatingChatWidget() {
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ duration: 0.22, ease: PANEL_EASE }}
             style={{ transformOrigin: 'bottom right' }}
-            className="flex flex-col w-[min(360px,92vw)] rounded-2xl bg-white shadow-2xl border border-neutral-200 overflow-hidden"
+            className="flex flex-col w-[min(360px,92vw)] rounded-2xl bg-neutral-50 shadow-2xl border border-neutral-200 overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3.5 bg-brand-900">
               <Avatar />
               <div className="flex-1 min-w-0">
-                <div className="text-white text-[14px] font-semibold leading-tight">
+                <div className="text-on-brand text-[14px] font-semibold leading-tight">
                   {contact.assistantName}
                 </div>
                 <div className="flex items-center gap-1.5 text-brand-200 text-[11px] leading-tight">
@@ -211,7 +211,7 @@ export function FloatingChatWidget() {
               <button
                 onClick={() => setChat((prev) => ({ ...prev, open: false }))}
                 aria-label="Cerrar chat"
-                className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full text-brand-200 hover:bg-white/10 hover:text-white transition-colors duration-200 cursor-pointer"
+                className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full text-brand-200 hover:bg-on-brand/10 hover:text-on-brand transition-colors duration-200 cursor-pointer"
               >
                 <CloseIcon />
               </button>
@@ -291,7 +291,7 @@ export function FloatingChatWidget() {
                           <button
                             key={option}
                             onClick={() => answer(option)}
-                            className="font-medium text-sm px-5 py-2.5 rounded-full cursor-pointer transition-colors duration-200 border border-neutral-300 bg-white text-neutral-700 hover:border-brand-900 hover:bg-brand-900 hover:text-white"
+                            className="font-medium text-sm px-5 py-2.5 rounded-full cursor-pointer transition-colors duration-200 border border-neutral-300 bg-neutral-50 text-neutral-700 hover:border-brand-900 hover:bg-brand-900 hover:text-on-brand"
                           >
                             {option}
                           </button>
@@ -311,13 +311,13 @@ export function FloatingChatWidget() {
                           value={chat.inputValue}
                           onChange={(e) => setChat((prev) => ({ ...prev, inputValue: e.target.value }))}
                           placeholder="Escribí tu respuesta..."
-                          className="fondi-input flex-1 rounded-md text-[14px] font-sans border border-neutral-300 bg-white text-brand-900"
+                          className="fondi-input flex-1 rounded-md text-[14px] font-sans border border-neutral-300 bg-neutral-50 text-brand-900"
                           style={{ padding: '9px 12px' }}
                         />
                         <button
                           type="submit"
                           aria-label="Enviar respuesta"
-                          className="shrink-0 flex items-center justify-center w-10 h-10 rounded-md bg-brand-900 text-white cursor-pointer hover:bg-brand-800 transition-colors duration-200"
+                          className="shrink-0 flex items-center justify-center w-10 h-10 rounded-md bg-brand-900 text-on-brand cursor-pointer hover:bg-brand-800 transition-colors duration-200"
                         >
                           <SendIcon />
                         </button>
@@ -340,7 +340,7 @@ export function FloatingChatWidget() {
             exit={{ opacity: 0, scale: 0.95, y: 8 }}
             transition={{ duration: 0.2, ease: PANEL_EASE }}
             style={{ transformOrigin: 'bottom right' }}
-            className="relative max-w-[240px] rounded-2xl rounded-br-sm bg-white shadow-lg border border-neutral-200 pl-4 pr-7 py-3 text-[13.5px] text-neutral-700 cursor-pointer"
+            className="relative max-w-[240px] rounded-2xl rounded-br-sm bg-neutral-50 shadow-lg border border-neutral-200 pl-4 pr-7 py-3 text-[13.5px] text-neutral-700 cursor-pointer"
             onClick={() => setChat((prev) => ({ ...prev, open: true, teaser: 'dismissed' }))}
           >
             {contact.teaser}
@@ -364,7 +364,7 @@ export function FloatingChatWidget() {
         onClick={() => setChat((prev) => ({ ...prev, open: !prev.open, teaser: 'dismissed' }))}
         aria-label={chat.open ? 'Cerrar chat' : 'Abrir chat'}
         whileTap={{ scale: 0.94 }}
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white cursor-pointer transition-colors duration-200"
+        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-on-brand cursor-pointer transition-colors duration-200"
         style={{ boxShadow: 'var(--shadow-whatsapp)' }}
       >
         <AnimatePresence mode="wait" initial={false}>
