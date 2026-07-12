@@ -4,7 +4,7 @@
     "modality": "Presencial",
     "location": "Buenos Aires, Argentina",
     "description": "Asesorá a clientes en la elección del crédito ideal, acompañándolos durante todo el proceso de solicitud y aprobación.",
-    "active": true,
+    "active": false,
     "publishedAt": "2026-06-15",
     "salary": "$800.000 - $1.200.000 ARS"
   },
@@ -13,7 +13,7 @@
     "modality": "Presencial",
     "location": "Córdoba, Argentina",
     "description": "Coordiná el equipo de asesores de tu sucursal, asegurando el cumplimiento de objetivos y la calidad de atención al cliente.",
-    "active": true,
+    "active": false,
     "publishedAt": "2026-05-28"
   },
   {
@@ -21,7 +21,7 @@
     "modality": "Híbrido",
     "location": "Rosario, Argentina",
     "description": "Supervisá los procesos operativos y de backoffice, optimizando tiempos de respuesta y experiencia del cliente.",
-    "active": true,
+    "active": false,
     "publishedAt": "2026-07-01"
   }
 ]

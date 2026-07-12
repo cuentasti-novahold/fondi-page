@@ -7,8 +7,7 @@ interface BadgeProps {
 
 export function Badge({ children, className = '' }: BadgeProps) {
   const classes = [
-    'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium',
-    'bg-accent/20 text-accent border border-accent/30',
+    'inline-flex items-center shrink-0 font-mono text-[11px] font-medium tracking-[.04em] uppercase text-brand-700 bg-brand-100 px-2.5 py-1 rounded-full',
     className,
   ]
     .filter(Boolean)
