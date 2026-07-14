@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
-import { jobs, contact } from '@/data'
-import { Icon, Button, Badge, Eyebrow, IconRow, cardClassName, cardStyle } from '@/components/ui'
+import { jobs } from '@/data'
+import { Icon, Button, Badge, Eyebrow, cardClassName, cardStyle } from '@/components/ui'
 import { fadeUp, slideInLeft, slideInRight, staggerContainer, staggerItem } from '@/components/motion'
 import { openFondiChat } from '@/lib/chat-bridge'
 import { formatDate } from '@/lib/format'
@@ -9,10 +9,6 @@ import { JobModal } from '@/components/job-modal'
 import type { JobOpening } from '@/types/content.types'
 
 const VP = { once: true, amount: 0.2 } as const
-
-// Placeholder application form link — single canonical constant so the
-// client can swap the real Microsoft Forms URL in one place once it's ready.
-const JOB_APPLICATION_FORM_URL = 'https://forms.office.com/r/PLACEHOLDER-fondi-careers'
 
 const WHY_FONDI = [
   {
@@ -42,6 +38,10 @@ const EXPECTATIONS = [
 export function JobsPage() {
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null)
   const activeJobs = jobs.filter((job) => job.active)
+
+  function applyToJob(job: JobOpening) {
+    openFondiChat({ mode: 'application', jobTitle: `${job.title} — ${job.location}` })
+  }
 
   return (
     <main>
@@ -187,7 +187,10 @@ export function JobsPage() {
                 Por el momento no tenemos vacantes abiertas, pero nos encantaría conocerte.
                 Escríbenos y te contactamos cuando surja una oportunidad para ti.
               </p>
-              <Button variant="primary" onClick={() => openFondiChat()}>
+              <Button
+                variant="primary"
+                onClick={() => openFondiChat({ mode: 'application', jobTitle: 'una futura vacante' })}
+              >
                 Contáctanos
               </Button>
             </motion.div>
@@ -200,79 +203,84 @@ export function JobsPage() {
               viewport={VP}
             >
               {activeJobs.map((job, index) => (
-                <motion.button
+                <motion.div
                   key={index}
-                  type="button"
-                  onClick={() => setSelectedJob(job)}
                   variants={staggerItem}
-                  className={`${cardClassName({ interactive: true })} flex flex-col text-left p-6 md:p-[30px] overflow-hidden`}
-                  style={{ ...cardStyle(), height: '272px' }}
+                  className={`${cardClassName()} flex flex-col p-6 md:p-[30px]`}
+                  style={cardStyle()}
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <h3
-                      className="font-sans font-semibold text-brand-900 line-clamp-2"
-                      style={{ fontSize: '19px', letterSpacing: '-0.01em', margin: 0, lineHeight: 1.25 }}
-                    >
-                      {job.title}
-                    </h3>
-                    <Badge>{job.modality}</Badge>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedJob(job)}
+                    className="flex flex-col text-left cursor-pointer group"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <h3
+                        className="font-sans font-semibold text-brand-900 line-clamp-2"
+                        style={{ fontSize: '19px', letterSpacing: '-0.01em', margin: 0, lineHeight: 1.25 }}
+                      >
+                        {job.title}
+                      </h3>
+                      <Badge>{job.modality}</Badge>
+                    </div>
 
-                  {/* Scannable facts instead of free-text prose — fixed-length
-                      data (location, short date, salary) keeps card height
-                      predictable regardless of how long the description is;
-                      the full description only shows in the detail modal. */}
-                  <div className="flex flex-col gap-1.5 mt-3">
-                    <IconRow icon="home">{job.location}</IconRow>
-                    <IconRow icon="clock">Publicado el {formatDate(job.publishedAt)}</IconRow>
+                    {/* Meta demoted to one quiet line — location is the only
+                        fact that varies per card; the publish date is
+                        lower-priority still, so it rides along in the same
+                        tier instead of claiming its own row. */}
+                    <div className="flex items-center gap-1.5 mt-2.5 text-[13px] text-neutral-500">
+                      <Icon name="map-pin" size={14} />
+                      <span>{job.location}</span>
+                      <span aria-hidden className="text-neutral-300">
+                        ·
+                      </span>
+                      <span>Publicado el {formatDate(job.publishedAt)}</span>
+                    </div>
+
+                    {/* Salary is the one fact that actually sells a
+                        commission-based sales role — it gets its own
+                        elevated surface instead of blending into body text. */}
                     {job.salary && (
-                      <div className="text-[14px] font-medium text-brand-900 mt-0.5">{job.salary}</div>
+                      <div
+                        className="flex items-center gap-2.5 mt-4 bg-brand-50 px-3.5 py-2.5"
+                        style={{ borderRadius: '8px' }}
+                      >
+                        <div
+                          className="flex items-center justify-center text-brand-700 shrink-0"
+                          style={{ width: '28px', height: '28px', borderRadius: '7px' }}
+                        >
+                          <Icon name="dollar-sign" size={16} />
+                        </div>
+                        <div
+                          className="text-[13.5px] leading-[1.4] text-brand-900 font-medium"
+                          style={{ fontVariantNumeric: 'tabular-nums' }}
+                        >
+                          {job.salary}
+                        </div>
+                      </div>
                     )}
-                  </div>
 
-                  {/* Pinned footer — stays at the card's bottom edge regardless of
-                      how much metadata rendered above, so cards in the same grid
-                      row line up and the fixed card height above never overflows. */}
-                  <div className="flex flex-col gap-2 mt-auto pt-5 border-t border-neutral-200">
-                    <IconRow
-                      icon="phone"
-                      iconClassName="stroke-brand-600"
-                      gapClassName="gap-2.5"
-                      textClassName="text-[13px] text-neutral-600"
-                    >
-                      {contact.phone}
-                    </IconRow>
-                    <IconRow
-                      icon="mail"
-                      iconClassName="stroke-brand-600"
-                      gapClassName="gap-2.5"
-                      textClassName="text-[13px] text-neutral-600"
-                    >
-                      {contact.email}
-                    </IconRow>
-                    <div className="flex items-center gap-1.5 text-[13px] font-medium text-brand-700 mt-1.5">
+                    <div className="flex items-center gap-1 text-[13px] font-medium text-neutral-500 mt-4 group-hover:text-brand-700 transition-colors">
                       Ver detalle completo →
                     </div>
-                  </div>
-                </motion.button>
+                  </button>
+
+                  {/* Single, unambiguous action per card — contact info
+                      already lives in the modal, repeating it on every card
+                      only competed with the one thing this page wants you
+                      to do. */}
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="w-full justify-center mt-5"
+                    onClick={() => applyToJob(job)}
+                  >
+                    Aplicar
+                  </Button>
+                </motion.div>
               ))}
             </motion.div>
           )}
-
-          <motion.div
-            className="mt-8 md:mt-10 pt-8 border-t border-neutral-200 text-center"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-          >
-            <Button variant="primary" href={JOB_APPLICATION_FORM_URL} target="_blank" rel="noopener noreferrer">
-              📝 Aplica hoy completando el formulario
-            </Button>
-            <p className="text-[14px] text-neutral-600 mt-4">
-              También puedes enviar tu hoja de vida al correo: {contact.email}
-            </p>
-          </motion.div>
         </div>
       </section>
 

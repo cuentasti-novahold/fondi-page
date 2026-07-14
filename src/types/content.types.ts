@@ -102,6 +102,14 @@ export interface FaqItem {
   a: string
 }
 
+export interface JobApplicationContent {
+  greeting: string
+  teaser: string
+  waIntroTemplate: string
+  waIntroGeneric: string
+  questions: ContactQuestion[]
+}
+
 export interface ContactContent {
   eyebrow: string
   headline: string
