@@ -1,5 +1,6 @@
 export { Button } from './button'
 export { Icon } from './icon'
+export { IconChip } from './icon-chip'
 export { Badge } from './badge'
 export { Eyebrow } from './eyebrow'
 export { IconRow } from './icon-row'
