@@ -19,7 +19,8 @@ export function Footer() {
               className="h-15 w-auto object-contain"
             />
             <p className="font-serif italic text-[19px] mt-[18px] max-w-[340px] leading-[1.45] text-brand-200">
-              Estamos disponibles para apoyarte cuando más lo necesitas.
+              Estamos disponibles para apoyarte cuando más lo necesitas.Te
+              invitamos a seguirnos en nuestras redes sociales:
             </p>
             <div className="flex gap-3 mt-5">
               <a
@@ -29,7 +30,7 @@ export function Footer() {
                 aria-label="Instagram @fondi.financial"
                 className="text-brand-300 hover:text-on-brand transition-colors"
               >
-                <Icon name="instagram" size={20} />
+                <Icon name="instagram" size={25} />
               </a>
               <a
                 href={contact.social.facebook}
@@ -38,7 +39,7 @@ export function Footer() {
                 aria-label="Facebook Fondi US"
                 className="text-brand-300 hover:text-on-brand transition-colors"
               >
-                <Icon name="facebook" size={20} />
+                <Icon name="facebook" size={25} />
               </a>
             </div>
           </div>
@@ -51,7 +52,11 @@ export function Footer() {
             <div className="flex flex-col gap-2.5 text-[14.5px] text-brand-200">
               {coverage.locations.map((loc) => (
                 <span key={loc.city} className="flex items-center gap-2">
-                  <Icon name="map-pin" size={14} className="shrink-0 text-brand-500" />
+                  <Icon
+                    name="map-pin"
+                    size={14}
+                    className="shrink-0 text-brand-500"
+                  />
                   {loc.city}, {loc.region}
                 </span>
               ))}

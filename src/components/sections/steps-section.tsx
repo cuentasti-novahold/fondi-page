@@ -31,7 +31,7 @@ export function StepsSection() {
             marginBottom: "44px",
           }}
         >
-          Como solicitar{" "}
+          Cómo solicitar{" "}
           <span className="font-serif italic font-medium">tu crédito</span>
         </h2>
       </motion.div>

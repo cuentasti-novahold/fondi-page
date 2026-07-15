@@ -57,7 +57,7 @@ export function AmountSelectorSection() {
           >
             Elige el monto{" "}
             <span className="font-serif italic font-medium">
-              que te gustaria solicitar.
+              que te gustaría solicitar.
             </span>
           </h2>
           <p

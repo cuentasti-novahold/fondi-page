@@ -29,7 +29,7 @@ export function BenefitsSection() {
           }}
         >
           Beneficios de solicitar{" "}
-          <span className="font-serif italic font-medium">tu credito </span> en
+          <span className="font-serif italic font-medium">tu crédito </span> en
           Fondi.
         </h2>
       </motion.div>

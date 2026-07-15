@@ -60,20 +60,13 @@ export function FaqSection() {
             Lo que más nos{" "}
             <span className="font-serif italic font-medium">preguntan.</span>
           </h2>
-          <p
-            className="text-base leading-[1.6] mt-4 text-neutral-600"
-            style={{ maxWidth: "400px" }}
-          >
-            Reunimos las dudas más comunes de quienes están por pedir su primer
-            crédito con nosotros.
-          </p>
           <div
             className="mt-8 pt-6 border-t border-neutral-200 hidden lg:block"
             style={{ maxWidth: "360px" }}
           >
             <p className="text-[13px] leading-[1.6] text-neutral-500">
-              ¿Tu pregunta no está acá? Cuéntanos por WhatsApp y te respondemos
-              en minutos.
+              ¿Tu pregunta no está ? Cuéntanos por WhatsApp y te respondemos en
+              minutos.
             </p>
           </div>
         </motion.div>

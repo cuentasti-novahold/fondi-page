@@ -1,13 +1,8 @@
 [
   {
     "i": "AS",
-    "n": "Andres Sar.",
+    "n": "Andrés Sar.",
     "q": "Recomiendo ampliamente a la compañía FONDI desde que decidí confiar en los servicios de esta empresa de préstamos, mi experiencia ha sido completamente satisfactoria. El proceso fue ágil, transparente y sin complicaciones, con condiciones claras desde el primer momento y un equipo de atención al cliente siempre dispuesto a resolver cualquier duda. Gracias a su apoyo financiero, pude cumplir mis objetivos en el tiempo que necesitaba desde san Antonio Texas."
-  },
-  {
-    "i": "AV",
-    "n": "AnGelica Velasquez.",
-    "q": "He sido cliente de FONDI por varios meses, me han ayudado en mucho, lo recomiendo mucho Gracias"
   },
   {
     "i": "LP",
@@ -26,7 +21,7 @@
   },
   {
     "i": "ML",
-    "n": "Maria L.",
+    "n": "María L.",
     "q": "100% recomendados. Al principio tenía mis dudas pero todo fue muy transparente, las cuotas son accesibles y no hay cobros ocultos. Gracias por la ayuda económica cuando más lo necesitaba."
   },
   {
@@ -38,5 +33,10 @@
     "i": "DG",
     "n": "Diana G.",
     "q": "Gracias a Fondi US pude arreglar mi carro para seguir trabajando. El proceso no es para nada complicado y los pagos se ajustan a lo que uno puede pagar mes a mes. Mil gracias son los mejores."
+  },
+  {
+    "i": "AV",
+    "n": "AnGelica Velasquez.",
+    "q": "He sido cliente de FONDI por varios meses, me han ayudado en mucho, lo recomiendo mucho Gracias"
   }
 ]
