@@ -93,7 +93,7 @@ export function Navbar() {
             <Link
               key={link.href}
               to={link.href}
-              className="text-sm font-medium text-brand-300 hover:text-on-brand transition-colors duration-300 no-underline"
+              className="text-base font-medium text-on-brand hover:text-brand-500 transition-colors duration-300 no-underline"
             >
               {link.label}
             </Link>
