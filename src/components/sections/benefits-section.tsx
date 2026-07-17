@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { benefits } from "@/data";
-import { Container, Icon } from "@/components/ui";
+import { AppIcon, Container } from "@/components/ui";
 import { fadeUp, staggerContainer, staggerItem } from "@/components/motion";
 
 const VP = { once: true, amount: 0.2 } as const;
@@ -58,7 +58,7 @@ export function BenefitsSection() {
                 className="flex items-center justify-center text-brand-900"
                 style={{ width: "46px", height: "46px" }}
               >
-                <Icon name={b.ic} size={32} />
+                <AppIcon name={b.ic} size={32} />
               </div>
               <span
                 className="font-serif italic text-brand-300"

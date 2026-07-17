@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { coverage } from '@/data'
-import { Container, Icon } from '@/components/ui'
+import { AppIcon, Container } from '@/components/ui'
 import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
 
 const VP = { once: true, amount: 0.25 } as const
@@ -67,7 +67,7 @@ export function CoverageSection() {
                 className="flex items-center justify-center text-brand-900 shrink-0"
                 style={{ width: '38px', height: '38px' }}
               >
-                <Icon name="map-pin" size={26} />
+                <AppIcon name="map-pin" size={26} />
               </div>
               <div>
                 <p className="font-sans font-medium text-brand-900 m-0" style={{ fontSize: '14px' }}>
@@ -113,7 +113,7 @@ export function CoverageSection() {
                 className="flex items-center justify-center text-brand-900 shrink-0"
                 style={{ width: '32px', height: '32px' }}
               >
-                <Icon name={req.icon} size={22} />
+                <AppIcon name={req.icon} size={22} />
               </div>
               <p className="text-brand-800 m-0" style={{ fontSize: '14px' }}>
                 {req.label}

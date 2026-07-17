@@ -1,6 +1,8 @@
 export { Button } from './button'
 export { Container } from './container'
 export { Icon } from './icon'
+export { IllustrativeIcon } from './illustrative-icon'
+export { AppIcon } from './app-icon'
 export { IconChip } from './icon-chip'
 export { Badge } from './badge'
 export { Eyebrow } from './eyebrow'

@@ -1,4 +1,4 @@
-import { Icon } from './icon'
+import { AppIcon } from './app-icon'
 
 interface IconChipProps {
   icon: string
@@ -24,7 +24,7 @@ export function IconChip({
       className={`flex items-center justify-center ${colorClassName} ${className}`.trim()}
       style={{ width: `${size}px`, height: `${size}px`, borderRadius: `${radius}px` }}
     >
-      <Icon name={icon} size={iconSize ?? Math.round(size * 0.7)} />
+      <AppIcon name={icon} size={iconSize ?? Math.round(size * 0.7)} />
     </div>
   )
 }
