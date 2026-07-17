@@ -1,9 +1,9 @@
-import { motion } from 'motion/react'
-import { jobsPage } from '@/data'
-import { Eyebrow, IconChip } from '@/components/ui'
-import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
+import { motion } from "motion/react";
+import { jobsPage } from "@/data";
+import { Eyebrow, IconChip } from "@/components/ui";
+import { fadeUp, staggerContainer, staggerItem } from "@/components/motion";
 
-const VP = { once: true, amount: 0.2 } as const
+const VP = { once: true, amount: 0.2 } as const;
 
 export function CareersExpectationsSection() {
   return (
@@ -28,7 +28,7 @@ export function CareersExpectationsSection() {
             variants={staggerItem}
             className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4"
           >
-            <IconChip icon={item.icon} size={32} className="shrink-0" />
+            <IconChip icon={item.icon} size={50} className="shrink-0" />
             <p className="text-[14px] text-neutral-700 m-0">{item.label}</p>
           </motion.li>
         ))}
@@ -37,5 +37,5 @@ export function CareersExpectationsSection() {
         Importante: debes tener tu situación migratoria definida.
       </p>
     </motion.div>
-  )
+  );
 }
