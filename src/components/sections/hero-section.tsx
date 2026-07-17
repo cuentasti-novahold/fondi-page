@@ -28,7 +28,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-brand-900 flex items-center min-h-[clamp(520px,42vw,720px)]"
+      className="relative overflow-hidden bg-brand-900 flex items-stretch sm:items-center min-h-[clamp(520px,42vw,720px)]"
     >
       {/* Background video */}
       {autoplayBlocked ? (
@@ -59,10 +59,10 @@ export function HeroSection() {
           sits on a full-bleed background image/video, so its text stays
           pinned to the viewport edge (own padding) instead of centering
           inside the sitewide 1280px column like every other section. */}
-      <div className="relative w-full px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
+      <div className="relative w-full flex flex-col px-5 sm:px-8 md:px-12 pt-24 pb-8 md:pt-24 md:pb-[104px] max-w-[640px]">
         {/* Beat 1 — eyebrow (reserves its space now, reveals at 4s) */}
         <motion.div {...beat(0.7)}>
-          <div className="font-sans font-bold text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-on-brand">
+          <div className="pl-1.5 sm:pl-0 font-sans font-bold text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-on-brand">
             <span className="w-[22px] h-px bg-brand-400" />
             {hero.eyebrow}
           </div>
@@ -71,9 +71,9 @@ export function HeroSection() {
         {/* Beat 1 — headline (immediate) */}
         <motion.h1
           {...beat(0)}
-          className="font-sans font-bold text-on-brand"
+          className="pl-1.5 sm:pl-0 font-sans font-bold text-on-brand"
           style={{
-            fontSize: "clamp(34px, 9vw, 56px)",
+            fontSize: "clamp(30px, 8vw, 56px)",
             lineHeight: 1.04,
             letterSpacing: "-0.03em",
             textWrap: "balance",
@@ -86,30 +86,33 @@ export function HeroSection() {
           </span>
         </motion.h1>
 
-        {/* Beat 3 — subline + CTAs (when video ends, ~7.8s) */}
-        <motion.p
-          {...beat(0.5)}
-          className="font-sans text-on-brand "
-          style={{
-            fontSize: "clamp(17px, 4.5vw, 21px)",
-            lineHeight: 1.5,
-            maxWidth: "480px",
-            margin: "24px 0 0",
-            textWrap: "pretty",
-          }}
-        >
-          {hero.subline}
-        </motion.p>
+        {/* Beat 3 — subline + CTA group: pinned to the bottom of the hero on
+            mobile (mt-auto), where it sat naturally in the flow before */}
+        <div className="mt-auto sm:mt-0">
+          <motion.p
+            {...beat(0.5)}
+            className="pl-1.5 sm:pl-0 font-sans text-on-brand"
+            style={{
+              fontSize: "clamp(15px, 4vw, 21px)",
+              lineHeight: 1.5,
+              maxWidth: "480px",
+              margin: "24px 0 0",
+              textWrap: "pretty",
+            }}
+          >
+            {hero.subline}
+          </motion.p>
 
-        {/* Beat 4 — CTA (with subline, video-end) */}
-        <motion.div
-          {...beat(0.5)}
-          className="flex flex-col sm:flex-row gap-3 mt-9"
-        >
-          <Button variant="solid" size="lg" href={hero.ctaPrimary.href}>
-            {hero.ctaPrimary.label}
-          </Button>
-        </motion.div>
+          {/* Beat 4 — CTA (with subline, video-end) */}
+          <motion.div
+            {...beat(0.5)}
+            className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-9"
+          >
+            <Button variant="solid" size="lg" href={hero.ctaPrimary.href}>
+              {hero.ctaPrimary.label}
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
