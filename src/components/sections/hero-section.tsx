@@ -53,7 +53,7 @@ export function HeroSection() {
       )}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-900/50 from-10% via-brand-900/50 via-25% to-transparent to-85% pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 from-10% via-brand-900/85 via-25% to-transparent to-85% pointer-events-none" />
 
       {/* Content — intentionally NOT wrapped in the shared Container: the hero
           sits on a full-bleed background image/video, so its text stays
@@ -62,7 +62,7 @@ export function HeroSection() {
       <div className="relative w-full px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
         {/* Beat 1 — eyebrow (reserves its space now, reveals at 4s) */}
         <motion.div {...beat(0.7)}>
-          <div className="font-mono text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-brand-300">
+          <div className="font-sans font-bold text-xs font-medium tracking-[.14em] uppercase flex items-center gap-2 text-on-brand">
             <span className="w-[22px] h-px bg-brand-400" />
             {hero.eyebrow}
           </div>
@@ -81,7 +81,7 @@ export function HeroSection() {
           }}
         >
           {hero.headline}{" "}
-          <span className="font-serif italic font-normal text-brand-300">
+          <span className="font-sans   font-normal text-on-brand">
             {hero.headlineItalic}
           </span>
         </motion.h1>
@@ -89,7 +89,7 @@ export function HeroSection() {
         {/* Beat 3 — subline + CTAs (when video ends, ~7.8s) */}
         <motion.p
           {...beat(0.5)}
-          className="font-serif text-brand-200"
+          className="font-sans text-on-brand"
           style={{
             fontSize: "clamp(17px, 4.5vw, 21px)",
             lineHeight: 1.5,
