@@ -7,13 +7,6 @@ import { Container } from "@/components/ui";
 
 const VP = { once: true, amount: 0.2 } as const;
 
-function getYoutubeEmbedUrl(url: string): string | null {
-  const match = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{11})/
-  );
-  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : null;
-}
-
 export function VideosSection() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [openVideo, setOpenVideo] = useState<VideoItem | null>(null);
@@ -189,39 +182,22 @@ function VideoModal({ video, onClose }: VideoModalProps) {
     >
       {rendered && (
         <div className="relative">
-          {(() => {
-            const embedUrl = getYoutubeEmbedUrl(rendered.url);
-            return embedUrl ? (
-              <iframe
-                key={rendered.url}
-                src={embedUrl}
-                title={rendered.t}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="block w-full bg-neutral-800"
-                style={{
-                  border: 0,
-                  borderRadius: "20px",
-                  aspectRatio: "16/9",
-                  maxHeight: "80vh",
-                }}
-              />
-            ) : (
-              <video
-                key={rendered.url}
-                src={rendered.url}
-                controls
-                autoPlay
-                className="block w-full bg-neutral-800"
-                style={{
-                  borderRadius: "20px",
-                  aspectRatio: "16/9",
-                  maxHeight: "80vh",
-                  objectFit: "contain",
-                }}
-              />
-            );
-          })()}
+          <video
+            key={rendered.url}
+            src={rendered.url}
+            poster={rendered.poster}
+            controls
+            autoPlay
+            playsInline
+            className="block w-full bg-neutral-800"
+            style={{
+              borderRadius: "20px",
+              aspectRatio: "9/16",
+              maxHeight: "80vh",
+              objectFit: "contain",
+            }}
+          />
+
           <div
             className="absolute left-4 top-4 flex items-center gap-[9px] rounded-full px-3.5 py-2 bg-neutral-50/94"
             style={{ boxShadow: "var(--shadow-brand-md)" }}

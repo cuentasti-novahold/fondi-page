@@ -176,7 +176,8 @@ input[type="range"]::-moz-range-thumb {
   padding: 0;
   border: none;
   background: transparent;
-  max-width: min(920px, 92vw);
+  /* Vertical 9:16 video capped at 80vh — width follows that height */
+  max-width: min(45vh, 92vw);
   width: 100%;
   margin: auto;
   opacity: 0;

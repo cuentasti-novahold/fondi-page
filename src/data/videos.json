@@ -1,17 +1,22 @@
 [
   {
-    "t": "Historia de María",
-    "poster": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=70",
-    "url": "https://www.youtube.com/watch?v=ZEhTlxPyKjE"
+    "t": "Historia de un cliente",
+    "poster": "/videos/historia-cliente-poster.jpg",
+    "url": "/videos/historia-cliente.mp4"
   },
   {
-    "t": "Mi negocio creció",
-    "poster": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=70",
-    "url": "https://www.youtube.com/watch?v=fpnZCGHa3Pc4"
+    "t": "Fondi en acción",
+    "poster": "/videos/fondi-reel-2-poster.jpg",
+    "url": "/videos/fondi-reel-2.mp4"
   },
   {
-    "t": "El equipo Fondi",
-    "poster": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=70",
-    "url": "https://www.youtube.com/watch?v=fpnZCGHa3Pc4"
+    "t": "Así trabajamos en Fondi",
+    "poster": "/videos/fondi-reel-4-poster.jpg",
+    "url": "/videos/fondi-reel-4.mp4"
+  },
+  {
+    "t": "Tu préstamo, paso a paso",
+    "poster": "/videos/fondi-reel-5-poster.jpg",
+    "url": "/videos/fondi-reel-5.mp4"
   }
 ]
