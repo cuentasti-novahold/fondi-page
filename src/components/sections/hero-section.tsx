@@ -55,7 +55,10 @@ export function HeroSection() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-900/50 from-10% via-brand-900/50 via-25% to-transparent to-85% pointer-events-none" />
 
-      {/* Content */}
+      {/* Content — intentionally NOT wrapped in the shared Container: the hero
+          sits on a full-bleed background image/video, so its text stays
+          pinned to the viewport edge (own padding) instead of centering
+          inside the sitewide 1280px column like every other section. */}
       <div className="relative w-full px-5 sm:px-8 md:px-12 pt-16 pb-14 md:pt-24 md:pb-[104px] max-w-[640px]">
         {/* Beat 1 — eyebrow (reserves its space now, reveals at 4s) */}
         <motion.div {...beat(0.7)}>

@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 import { simulator } from '@/data'
 import { AnimatedCounter } from '@/components/motion'
 import { slideInLeft, EASE } from '@/components/motion'
-import { Button } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 
 function fmt(n: number): string {
   return new Intl.NumberFormat('es-US', {
@@ -40,8 +40,9 @@ export function SimulatorSection() {
   return (
     <section
       id="simulador"
-      className="relative bg-brand-900 px-5 sm:px-8 md:px-12 pt-14 pb-16 md:pt-[76px] md:pb-[120px]"
+      className="relative bg-brand-900 pt-14 pb-16 md:pt-[76px] md:pb-[120px]"
     >
+      <Container>
       {/* Heading — slides from left */}
       <motion.div
         style={{ maxWidth: '520px' }}
@@ -174,6 +175,7 @@ export function SimulatorSection() {
           </div>
         </div>
       </motion.div>
+      </Container>
     </section>
   )
 }

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { services } from '@/data'
-import { Icon } from '@/components/ui'
+import { Container, Icon } from '@/components/ui'
 import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
 
 const VP = { once: true, amount: 0.2 } as const
@@ -9,8 +9,9 @@ export function ServicesSection() {
   return (
     <section
       id="servicios"
-      className="bg-neutral-100 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="bg-neutral-100 border-t border-neutral-200 py-14 md:py-[76px]"
     >
+      <Container>
       {/* Header */}
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
         <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
@@ -73,6 +74,7 @@ export function ServicesSection() {
           </motion.div>
         ))}
       </motion.div>
+      </Container>
     </section>
   )
 }

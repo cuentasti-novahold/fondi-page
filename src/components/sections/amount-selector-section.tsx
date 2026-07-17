@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { simulator } from "@/data";
 import { AnimatedCounter } from "@/components/motion";
 import { slideInLeft, EASE } from "@/components/motion";
-import { Button } from "@/components/ui";
+import { Button, Container } from "@/components/ui";
 import { openFondiChat } from "@/lib/chat-bridge";
 
 function fmt(n: number): string {
@@ -33,9 +33,9 @@ export function AmountSelectorSection() {
   return (
     <section
       id="montos"
-      className="relative bg-brand-900 px-5 sm:px-8 md:px-12 pt-14 pb-16 md:pt-[76px] md:pb-[120px]"
+      className="relative bg-brand-900 pt-14 pb-16 md:pt-[76px] md:pb-[120px]"
     >
-      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[440px_1fr] lg:items-center lg:gap-16">
+      <Container className="lg:grid lg:grid-cols-[440px_1fr] lg:items-center lg:gap-16">
         {/* Heading — slides from left */}
         <motion.div
           variants={slideInLeft}
@@ -134,7 +134,7 @@ export function AmountSelectorSection() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -6,6 +6,7 @@ import {
   staggerItem,
   slideInLeft,
 } from "@/components/motion";
+import { Container } from "@/components/ui";
 
 const VP = { once: true, amount: 0.2 } as const;
 
@@ -28,7 +29,7 @@ export function FaqSection() {
   return (
     <section
       id="preguntas-frecuentes"
-      className="bg-neutral-50 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="bg-neutral-50 border-t border-neutral-200 py-14 md:py-[76px]"
     >
       <script
         type="application/ld+json"
@@ -36,7 +37,7 @@ export function FaqSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="lg:grid lg:grid-cols-[440px_1fr] lg:items-start lg:gap-16">
+      <Container className="lg:grid lg:grid-cols-[440px_1fr] lg:items-start lg:gap-16">
         {/* Heading + WhatsApp fallback — slides from left, sticky on desktop */}
         <motion.div
           variants={slideInLeft}
@@ -164,7 +165,7 @@ export function FaqSection() {
             </p>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

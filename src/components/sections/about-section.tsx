@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { about } from "@/data";
-import { Icon } from "@/components/ui";
+import { Container, Icon } from "@/components/ui";
 import {
   fadeUp,
   slideInLeft,
@@ -14,8 +14,9 @@ export function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-brand-900 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="bg-brand-900 py-14 md:py-[76px]"
     >
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
       {/* Text — slides from left */}
       <motion.div
         variants={slideInLeft}
@@ -113,6 +114,7 @@ export function AboutSection() {
           ))}
         </motion.div>
       </motion.div>
+      </Container>
     </section>
   );
 }

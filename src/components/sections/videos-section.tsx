@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { videos } from "@/data";
 import type { VideoItem } from "@/types/content.types";
 import { fadeUp, staggerContainer, staggerItem } from "@/components/motion";
+import { Container } from "@/components/ui";
 
 const VP = { once: true, amount: 0.2 } as const;
 
@@ -20,8 +21,9 @@ export function VideosSection() {
   return (
     <section
       id="videos"
-      className="bg-brand-50 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="bg-brand-50 border-t border-neutral-200 py-14 md:py-[76px]"
     >
+      <Container>
       {/* Header */}
       <motion.div
         variants={fadeUp}
@@ -73,6 +75,7 @@ export function VideosSection() {
           </motion.div>
         ))}
       </motion.div>
+      </Container>
 
       <VideoModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </section>

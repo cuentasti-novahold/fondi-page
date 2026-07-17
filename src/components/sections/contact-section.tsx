@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { contact } from '@/data'
 import { slideInLeft, slideInRight } from '@/components/motion'
-import { Button } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 import { openFondiChat } from '@/lib/chat-bridge'
 
 const VP = { once: true, amount: 0.2 } as const
@@ -16,9 +16,9 @@ export function ContactSection() {
   return (
     <section
       id="contacto"
-      className="bg-neutral-100 border-t border-neutral-200 px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="bg-neutral-100 border-t border-neutral-200 py-14 md:py-[76px]"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left: info — slides from left */}
         <motion.div variants={slideInLeft} initial="hidden" whileInView="visible" viewport={VP}>
           <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
@@ -98,7 +98,7 @@ export function ContactSection() {
             </Button>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   )
 }

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { steps } from "@/data";
 import { fadeUp, EASE } from "@/components/motion";
+import { Container } from "@/components/ui";
 
 const VP = { once: true, amount: 0.2 } as const;
 
@@ -8,8 +9,9 @@ export function StepsSection() {
   return (
     <section
       id="como-funciona"
-      className="bg-neutral-50 px-5 sm:px-8 md:px-12 pt-16 pb-12 md:pt-[120px] md:pb-[76px]"
+      className="bg-neutral-50 pt-16 pb-12 md:pt-[120px] md:pb-[76px]"
     >
+      <Container>
       {/* Header */}
       <motion.div
         variants={fadeUp}
@@ -83,6 +85,7 @@ export function StepsSection() {
           );
         })}
       </div>
+      </Container>
     </section>
   );
 }

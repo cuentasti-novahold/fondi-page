@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { coverage } from '@/data'
-import { Icon } from '@/components/ui'
+import { Container, Icon } from '@/components/ui'
 import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
 
 const VP = { once: true, amount: 0.25 } as const
@@ -9,8 +9,9 @@ export function CoverageSection() {
   return (
     <section
       id="cobertura"
-      className="px-5 sm:px-8 md:px-12 py-14 md:py-[76px]"
+      className="py-14 md:py-[76px]"
     >
+      <Container>
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
         <div className="font-mono text-xs tracking-[.14em] uppercase text-brand-500">
           {coverage.eyebrow}
@@ -121,6 +122,7 @@ export function CoverageSection() {
           ))}
         </motion.ul>
       </motion.div>
+      </Container>
     </section>
   )
 }

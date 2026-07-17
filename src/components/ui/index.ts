@@ -1,4 +1,5 @@
 export { Button } from './button'
+export { Container } from './container'
 export { Icon } from './icon'
 export { IconChip } from './icon-chip'
 export { Badge } from './badge'

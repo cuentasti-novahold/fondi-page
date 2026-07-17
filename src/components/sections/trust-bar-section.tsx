@@ -1,10 +1,12 @@
 import { motion } from 'motion/react'
 import { stats } from '@/data'
 import { staggerContainer, staggerItem } from '@/components/motion'
+import { Container } from '@/components/ui'
 
 export function TrustBarSection() {
   return (
-    <div className="bg-brand-800 py-7 px-5 sm:px-8 md:px-12">
+    <div className="bg-brand-800 py-7">
+      <Container>
       <motion.div
         className="grid grid-cols-2 gap-y-6 gap-x-4 sm:grid-cols-4 sm:gap-6"
         variants={staggerContainer}
@@ -31,6 +33,7 @@ export function TrustBarSection() {
           </motion.div>
         ))}
       </motion.div>
+      </Container>
     </div>
   )
 }

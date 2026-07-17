@@ -1,5 +1,6 @@
 import { contact, coverage } from "@/data";
 import { Icon } from "@/components/ui/icon";
+import { Container } from "@/components/ui";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +10,7 @@ export function Footer() {
       style={{ paddingTop: "60px" }}
     >
       {/* 4-column grid */}
-      <div className="px-5 sm:px-8 md:px-12 pb-10 border-b border-brand-800">
+      <Container className="pb-10 border-b border-brand-800">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div>
@@ -99,13 +100,13 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Bottom line */}
-      <div className="px-5 sm:px-8 md:px-12 py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500">
+      <Container className="py-6 flex justify-between flex-wrap gap-3 text-[12.5px] text-brand-500">
         <span>© {year} Fondi · Todos los derechos reservados</span>
         <span>Créditos sujetos a evaluación</span>
-      </div>
+      </Container>
     </footer>
   );
 }

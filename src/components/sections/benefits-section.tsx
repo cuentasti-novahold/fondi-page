@@ -1,13 +1,14 @@
 import { motion } from "motion/react";
 import { benefits } from "@/data";
-import { Icon } from "@/components/ui";
+import { Container, Icon } from "@/components/ui";
 import { fadeUp, staggerContainer, staggerItem } from "@/components/motion";
 
 const VP = { once: true, amount: 0.2 } as const;
 
 export function BenefitsSection() {
   return (
-    <section className="bg-neutral-50 py-14 md:py-[76px] px-5 sm:px-8 md:px-12">
+    <section className="bg-neutral-50 py-14 md:py-[76px]">
+      <Container>
       {/* Header */}
       <motion.div
         variants={fadeUp}
@@ -85,6 +86,7 @@ export function BenefitsSection() {
           </motion.div>
         ))}
       </motion.div>
+      </Container>
     </section>
   );
 }

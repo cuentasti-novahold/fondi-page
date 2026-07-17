@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Link, useLocation } from "react-router-dom";
 import { EASE } from "@/components/motion";
+import { Container } from "@/components/ui";
 
 // Navbar lives in the shared Layout and persists across routes, so every
 // in-page anchor needs the leading "/" to keep resolving to the home sections
@@ -75,7 +76,7 @@ export function Navbar() {
           : "bg-brand-900 border-b border-brand-800"
       }`}
     >
-      <div className="h-[70px] flex items-center justify-between px-5 sm:px-8 md:px-10">
+      <Container className="h-[70px] flex items-center justify-between">
         {/* Logo — larger over the transparent hero, settles smaller once the solid bar takes over */}
         <Link to="/#hero" className="flex items-center no-underline">
           <img
@@ -136,7 +137,7 @@ export function Navbar() {
             </svg>
           </button>
         </div>
-      </div>
+      </Container>
 
       {/* Mobile menu panel — positions relative to the sticky header, slides/fades in */}
       <AnimatePresence>
