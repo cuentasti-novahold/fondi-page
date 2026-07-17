@@ -53,7 +53,7 @@ export function HeroSection() {
       )}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 from-10% via-brand-900/85 via-25% to-transparent to-85% pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-900/60   md:from-brand-900/90 md:from-10% from-100% via-brand-900/50 md:via-brand-900/85 via-25% to-transparent to-85% pointer-events-none" />
 
       {/* Content — intentionally NOT wrapped in the shared Container: the hero
           sits on a full-bleed background image/video, so its text stays
@@ -89,7 +89,7 @@ export function HeroSection() {
         {/* Beat 3 — subline + CTAs (when video ends, ~7.8s) */}
         <motion.p
           {...beat(0.5)}
-          className="font-sans text-on-brand"
+          className="font-sans text-on-brand "
           style={{
             fontSize: "clamp(17px, 4.5vw, 21px)",
             lineHeight: 1.5,
